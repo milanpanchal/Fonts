@@ -10,6 +10,8 @@
 #import "ViewController.h"
 #import "FavouriteViewController.h"
 
+#define kFavourtiteFonts @"kFavouriteFonts"
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
@@ -18,11 +20,19 @@
 
 @property (strong, nonatomic) UITabBarController *tabBarController ;
 
+@property (strong, nonatomic) NSMutableArray *favouriteFontsArray;
+
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
+
+- (void)addFontToFavourite:(NSString *)name ;
+- (void)removeFontFromFavourite:(NSString *)name ;
+- (BOOL)isFontPresentInFavList:(NSString *)fontName ;
+- (NSArray *)getAllFavouriteFonts ;
+- (void)removeAllFontsFromFavourite ;
 
 @end

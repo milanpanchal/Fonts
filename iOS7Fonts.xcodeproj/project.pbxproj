@@ -30,6 +30,7 @@
 		EDD0E4B618891B8A00C2CD20 /* FavouriteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDD0E4B418891B8A00C2CD20 /* FavouriteViewController.xib */; };
 		EDD0E4BD1889314300C2CD20 /* all_30@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EDD0E4BB1889314300C2CD20 /* all_30@2x.png */; };
 		EDD0E4BE1889314300C2CD20 /* favorite_star_30@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EDD0E4BC1889314300C2CD20 /* favorite_star_30@2x.png */; };
+		EDD0E4C21889400500C2CD20 /* favorite_star_filled_30@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EDD0E4C11889400500C2CD20 /* favorite_star_filled_30@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		EDD0E4B418891B8A00C2CD20 /* FavouriteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavouriteViewController.xib; sourceTree = "<group>"; };
 		EDD0E4BB1889314300C2CD20 /* all_30@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "all_30@2x.png"; sourceTree = "<group>"; };
 		EDD0E4BC1889314300C2CD20 /* favorite_star_30@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favorite_star_30@2x.png"; sourceTree = "<group>"; };
+		EDD0E4C11889400500C2CD20 /* favorite_star_filled_30@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favorite_star_filled_30@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 		ED701B2E1885231C005D7F6B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EDD0E4C11889400500C2CD20 /* favorite_star_filled_30@2x.png */,
 				EDD0E4BB1889314300C2CD20 /* all_30@2x.png */,
 				EDD0E4BC1889314300C2CD20 /* favorite_star_30@2x.png */,
 				ED701B2F1885231C005D7F6B /* iOS7Fonts-Info.plist */,
@@ -279,6 +282,7 @@
 				ED701B5E188523AE005D7F6B /* ViewController.xib in Resources */,
 				ED701B6318853D3F005D7F6B /* FontDetailViewController.xib in Resources */,
 				ED701B3D1885231C005D7F6B /* Images.xcassets in Resources */,
+				EDD0E4C21889400500C2CD20 /* favorite_star_filled_30@2x.png in Resources */,
 				EDD0E4BD1889314300C2CD20 /* all_30@2x.png in Resources */,
 				EDD0E4B618891B8A00C2CD20 /* FavouriteViewController.xib in Resources */,
 			);

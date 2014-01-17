@@ -7,25 +7,32 @@
 //
 
 #import "FavouriteViewController.h"
+#import "AppDelegate.h"
 
-@interface FavouriteViewController ()
+@interface FavouriteViewController () {
+
+    AppDelegate *appDelegate ;
+    NSArray *favouriteFonts ;
+    UIBarButtonItem *barButton;
+}
 
 @end
 
 @implementation FavouriteViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+#pragma mark - UIView life cycle
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         
         // set tab title
-        self.title = @"Favourite";
+        self.title = @"Favorite";
         
         // Set different title for navigation controller
         // Note: self.title will reset Nav Title. Use it first if you want different titles
 
-        self.navigationItem.title = @"Favourite Fonts";
+        self.navigationItem.title = @"Favorite Fonts";
         [self.tabBarItem setImage:[[UIImage imageNamed:@"favorite_star_30"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
 
 
@@ -33,16 +40,109 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+
+    appDelegate     = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    [self addnavigationBarRightButton];
+
 }
 
-- (void)didReceiveMemoryWarning
-{
+-(void)viewWillAppear:(BOOL)animated {
+    
+    favouriteFonts  = [appDelegate getAllFavouriteFonts];
+    [_tblView reloadData];
+}
+
+
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - UITableView DataSource/Delegate
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+
+    if ([favouriteFonts count] > 0) {
+        barButton.enabled = YES ;
+    }else{
+        barButton.enabled = NO;
+    }
+        
+    return [favouriteFonts count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *CellIdentifier = @"CellIdentifier";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
+    
+    cell.textLabel.text = [favouriteFonts objectAtIndex:indexPath.row];
+    cell.textLabel.font = [UIFont fontWithName:[favouriteFonts objectAtIndex:indexPath.row] size:12.00f];
+    
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return @"Favorite Fonts";
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
+
+    if ([favouriteFonts count] > 0) {
+        return [NSString stringWithFormat:@"Total Fonts : %d",[favouriteFonts count]];
+
+    }
+    return nil;
+    
+}
+
+#pragma mark - User defined methods
+
+- (void)addnavigationBarRightButton {
+    
+    barButton = [[UIBarButtonItem alloc]
+                               initWithTitle:@"Clear All" style:UIBarButtonItemStyleDone target:self action:@selector(clearAllConfirmationAlert)];
+    self.navigationItem.rightBarButtonItem = barButton;
+}
+
+
+
+- (void)clearAllConfirmationAlert {
+
+    UIAlertView *confirmationDialog = [[UIAlertView alloc] initWithTitle:@"Clear Favorite Font List"
+                                                                 message:@"Are you sure you want to clear your favorite font list?"
+                                                                delegate:self
+                                                       cancelButtonTitle:@"No"
+                                                       otherButtonTitles:@"Yes", nil];
+    [confirmationDialog show];
+}
+
+- (void)clearAll {
+    [appDelegate removeAllFontsFromFavourite];
+    favouriteFonts = nil;
+    [_tblView reloadData];
+}
+
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+
+    if (alertView.firstOtherButtonIndex != buttonIndex) {
+        return;
+    }
+    [self clearAll];
 }
 
 @end

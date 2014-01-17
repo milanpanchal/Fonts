@@ -8,14 +8,18 @@
 
 #import "ViewController.h"
 #import "FontDetailViewController.h"
+#import "AppDelegate.h"
 
 @interface ViewController () {
     NSArray *fontFamilyNames;
+    AppDelegate *appDelegate;
 }
 
 @end
 
 @implementation ViewController
+
+#pragma mark - UIView life cycle
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -37,6 +41,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     fontFamilyNames = [[UIFont familyNames] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    appDelegate     = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -44,7 +49,8 @@
     if ([_tblView indexPathForSelectedRow]) {
         [_tblView deselectRowAtIndexPath:[_tblView indexPathForSelectedRow] animated:YES];
     }
-
+    [_tblView reloadData];
+    
 }
 
 
@@ -79,6 +85,24 @@
 
     cell.textLabel.text = [fontNames objectAtIndex:indexPath.row];
     cell.textLabel.font = [UIFont fontWithName:[fontFamilyNames objectAtIndex:indexPath.section] size:12.00f];
+
+    cell.imageView.userInteractionEnabled = YES;
+    
+    if ([appDelegate isFontPresentInFavList:cell.textLabel.text]) {
+        cell.imageView.tag = 1;
+        cell.imageView.image = [UIImage imageNamed:@"favorite_star_filled_30"];
+
+    }else{
+        cell.imageView.tag = 0;
+        cell.imageView.image = [UIImage imageNamed:@"favorite_star_30"];
+
+    }
+    cell.contentMode = UIViewContentModeScaleAspectFit;
+    
+    UITapGestureRecognizer *tapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapOnFavouriteImage:)];
+    tapped.numberOfTapsRequired = 1;
+    [cell.imageView addGestureRecognizer:tapped];
+
     return cell;
 }
 
@@ -108,5 +132,40 @@
 //    //sectionForSectionIndexTitleAtIndex: is a bit buggy, but is still useable
 //    return [[UILocalizedIndexedCollation currentCollation] sectionForSectionIndexTitleAtIndex:index];
 //}
+
+
+#pragma mark - GestureRecognizer
+
+-(void)tapOnFavouriteImage:(UITapGestureRecognizer *) gesture {
+    
+    //Check if gesture came from UIImageView Class or not
+    if ([gesture.view isKindOfClass:[UIImageView class]]) {
+        UIImageView *imageView = (UIImageView*)gesture.view;
+       
+        // Get ImageView Text
+        if ([imageView.superview.superview.superview isKindOfClass:[UITableViewCell class]]) {
+            UITableViewCell *cell = (UITableViewCell*)[[[imageView superview]superview]superview];
+            
+            if (imageView.tag) {
+                imageView.image = [UIImage imageNamed:@"favorite_star_30"];
+                imageView.tag = 0;
+                [appDelegate removeFontFromFavourite:cell.textLabel.text];
+            }else{
+                imageView.image = [UIImage imageNamed:@"favorite_star_filled_30"];
+                imageView.tag = 1;
+                [appDelegate addFontToFavourite:cell.textLabel.text];
+                
+            }
+            
+
+        }
+        
+        
+    }
+
+    
+
+}
+
 
 @end

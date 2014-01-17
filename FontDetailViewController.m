@@ -7,8 +7,13 @@
 //
 
 #import "FontDetailViewController.h"
+#import "AppDelegate.h"
 
-@interface FontDetailViewController ()
+@interface FontDetailViewController () {
+
+    AppDelegate *appDelegate;
+    UIBarButtonItem *rightBarButton;
+}
 
 @end
 
@@ -62,8 +67,23 @@
     CGSize expectedLabelSize = [self getExpectedSizeForLabel:fontNameLabel];
     labelTextHeightWidth.text = [NSString stringWithFormat:@"Line: Height = %.1f, Width = %.1f px",expectedLabelSize.height,expectedLabelSize.width];
     
+    appDelegate     = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+
+    
+    [self addnavigationBarRightButton];
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+    
+    if (![appDelegate isFontPresentInFavList:_fontNameString]) {
+        rightBarButton.image = [UIImage imageNamed:@"favorite_star_30"];
+        
+    }else {
+        rightBarButton.image = [UIImage imageNamed:@"favorite_star_filled_30"];
+        
+    }
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -88,6 +108,37 @@
                                 limitedToNumberOfLines:label.numberOfLines].size;
 
     return expectedLabelSize;
+}
+
+- (void)addnavigationBarRightButton {
+    
+    NSString *imageName = nil;
+    if ([appDelegate isFontPresentInFavList:_fontNameString]) {
+        imageName = @"favorite_star_filled_30";
+    
+    }else {
+        imageName = @"favorite_star_30";
+    }
+
+    rightBarButton = [[UIBarButtonItem alloc]
+                      initWithImage:[UIImage imageNamed:imageName] style:UIBarButtonItemStyleDone target:self action:@selector(addToFavouriteFonts)];
+
+    
+    self.navigationItem.rightBarButtonItem = rightBarButton;
+}
+
+- (void)addToFavouriteFonts {
+    
+    if ([appDelegate isFontPresentInFavList:_fontNameString]) {
+        [appDelegate removeFontFromFavourite:_fontNameString];
+        rightBarButton.image = [UIImage imageNamed:@"favorite_star_30"];
+
+    }else {
+        [appDelegate addFontToFavourite:_fontNameString];
+        rightBarButton.image = [UIImage imageNamed:@"favorite_star_filled_30"];
+
+    }
+
 }
 
 @end

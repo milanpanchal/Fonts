@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4469" systemVersion="13A476u" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3694"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FavouriteViewController">
             <connections>
+                <outlet property="tblView" destination="jWe-V8-fCv" id="vPf-df-cUI"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -13,8 +14,27 @@
         <view contentMode="scaleToFill" id="1">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="jWe-V8-fCv">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="JXI-dc-hep"/>
+                        <outlet property="delegate" destination="-1" id="CJb-SN-0Ny"/>
+                    </connections>
+                </tableView>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="jWe-V8-fCv" secondAttribute="bottom" id="GlH-HI-WEI"/>
+                <constraint firstItem="jWe-V8-fCv" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="SWj-9f-zJI"/>
+                <constraint firstAttribute="trailing" secondItem="jWe-V8-fCv" secondAttribute="trailing" id="URN-1d-wIW"/>
+                <constraint firstItem="jWe-V8-fCv" firstAttribute="top" secondItem="1" secondAttribute="top" id="da9-yX-r5D"/>
+            </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>

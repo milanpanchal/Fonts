@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FavouriteViewController : UIViewController
+@interface FavouriteViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate>
+@property (strong, nonatomic) IBOutlet UITableView *tblView;
 
 @end

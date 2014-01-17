@@ -158,5 +158,50 @@
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
+#pragma mark - User defined methods for fonts
+
+- (void)addFontToFavourite:(NSString *)fontName {
+    NSMutableArray *favouriteFonts = [[NSMutableArray alloc] initWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:kFavourtiteFonts]];
+   
+    if (![favouriteFonts containsObject:fontName]) {
+        [favouriteFonts addObject:fontName];        
+    }
+
+    
+    NSLog(@"Fav Fonts %@",favouriteFonts);
+    [[NSUserDefaults standardUserDefaults] setObject:favouriteFonts forKey:kFavourtiteFonts];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+
+}
+
+- (void)removeFontFromFavourite:(NSString *)fontName {
+
+    NSMutableArray *favouriteFonts = [[NSMutableArray alloc] initWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:kFavourtiteFonts]];
+    [favouriteFonts removeObject:fontName];
+    
+    NSLog(@"Fav Fonts %@",favouriteFonts);
+    [[NSUserDefaults standardUserDefaults] setObject:favouriteFonts forKey:kFavourtiteFonts];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+
+- (BOOL)isFontPresentInFavList:(NSString *)fontName {
+
+    NSMutableArray *favouriteFonts = [[NSUserDefaults standardUserDefaults] objectForKey:kFavourtiteFonts];
+    return [favouriteFonts containsObject:fontName];
+}
+
+- (NSArray *)getAllFavouriteFonts {
+
+    return [[NSUserDefaults standardUserDefaults] arrayForKey:kFavourtiteFonts];
+    
+}
+
+- (void)removeAllFontsFromFavourite {
+    
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:kFavourtiteFonts];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
 
 @end
