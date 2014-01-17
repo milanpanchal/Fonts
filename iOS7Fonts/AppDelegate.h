@@ -8,12 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "ViewController.h"
+#import "FavouriteViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) ViewController *viewController;
-@property (strong, nonatomic) UINavigationController *navController;
+@property (strong, nonatomic) FavouriteViewController *favViewController;
+
+@property (strong, nonatomic) UITabBarController *tabBarController ;
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;

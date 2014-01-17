@@ -32,7 +32,7 @@
     
     // Setup font lable
     fontNameLabel.text = _fontNameString;
-    fontNameLabel.font = [UIFont fontWithName:self.title size:(int)_fontSlider.minimumValue];
+    fontNameLabel.font = [UIFont fontWithName:_fontNameString size:(int)_fontSlider.minimumValue];
     fontNameLabel.backgroundColor = [UIColor whiteColor];
     fontNameLabel.textColor = [UIColor blackColor];
     fontNameLabel.numberOfLines = 0;

@@ -26,6 +26,10 @@
 		ED701B5E188523AE005D7F6B /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED701B5C188523AE005D7F6B /* ViewController.xib */; };
 		ED701B6218853D3F005D7F6B /* FontDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED701B6018853D3F005D7F6B /* FontDetailViewController.m */; };
 		ED701B6318853D3F005D7F6B /* FontDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED701B6118853D3F005D7F6B /* FontDetailViewController.xib */; };
+		EDD0E4B518891B8A00C2CD20 /* FavouriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD0E4B318891B8A00C2CD20 /* FavouriteViewController.m */; };
+		EDD0E4B618891B8A00C2CD20 /* FavouriteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDD0E4B418891B8A00C2CD20 /* FavouriteViewController.xib */; };
+		EDD0E4BD1889314300C2CD20 /* all_30@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EDD0E4BB1889314300C2CD20 /* all_30@2x.png */; };
+		EDD0E4BE1889314300C2CD20 /* favorite_star_30@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EDD0E4BC1889314300C2CD20 /* favorite_star_30@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,12 +61,17 @@
 		ED701B4C1885231C005D7F6B /* iOS7FontsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iOS7FontsTests-Info.plist"; sourceTree = "<group>"; };
 		ED701B4E1885231C005D7F6B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ED701B501885231C005D7F6B /* iOS7FontsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOS7FontsTests.m; sourceTree = "<group>"; };
-		ED701B5A188523AE005D7F6B /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		ED701B5B188523AE005D7F6B /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		ED701B5C188523AE005D7F6B /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
-		ED701B5F18853D3F005D7F6B /* FontDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontDetailViewController.h; sourceTree = "<group>"; };
-		ED701B6018853D3F005D7F6B /* FontDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontDetailViewController.m; sourceTree = "<group>"; };
-		ED701B6118853D3F005D7F6B /* FontDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FontDetailViewController.xib; sourceTree = "<group>"; };
+		ED701B5A188523AE005D7F6B /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = ../ViewController.h; sourceTree = "<group>"; };
+		ED701B5B188523AE005D7F6B /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = ../ViewController.m; sourceTree = "<group>"; };
+		ED701B5C188523AE005D7F6B /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ViewController.xib; path = ../ViewController.xib; sourceTree = "<group>"; };
+		ED701B5F18853D3F005D7F6B /* FontDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FontDetailViewController.h; path = ../FontDetailViewController.h; sourceTree = "<group>"; };
+		ED701B6018853D3F005D7F6B /* FontDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FontDetailViewController.m; path = ../FontDetailViewController.m; sourceTree = "<group>"; };
+		ED701B6118853D3F005D7F6B /* FontDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FontDetailViewController.xib; path = ../FontDetailViewController.xib; sourceTree = "<group>"; };
+		EDD0E4B218891B8A00C2CD20 /* FavouriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouriteViewController.h; sourceTree = "<group>"; };
+		EDD0E4B318891B8A00C2CD20 /* FavouriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouriteViewController.m; sourceTree = "<group>"; };
+		EDD0E4B418891B8A00C2CD20 /* FavouriteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavouriteViewController.xib; sourceTree = "<group>"; };
+		EDD0E4BB1889314300C2CD20 /* all_30@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "all_30@2x.png"; sourceTree = "<group>"; };
+		EDD0E4BC1889314300C2CD20 /* favorite_star_30@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favorite_star_30@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,12 +103,6 @@
 		ED701B191885231C005D7F6B = {
 			isa = PBXGroup;
 			children = (
-				ED701B5F18853D3F005D7F6B /* FontDetailViewController.h */,
-				ED701B6018853D3F005D7F6B /* FontDetailViewController.m */,
-				ED701B6118853D3F005D7F6B /* FontDetailViewController.xib */,
-				ED701B5A188523AE005D7F6B /* ViewController.h */,
-				ED701B5B188523AE005D7F6B /* ViewController.m */,
-				ED701B5C188523AE005D7F6B /* ViewController.xib */,
 				ED701B2D1885231C005D7F6B /* iOS7Fonts */,
 				ED701B4A1885231C005D7F6B /* iOS7FontsTests */,
 				ED701B241885231C005D7F6B /* Frameworks */,
@@ -133,6 +136,8 @@
 			children = (
 				ED701B361885231C005D7F6B /* AppDelegate.h */,
 				ED701B371885231C005D7F6B /* AppDelegate.m */,
+				EDD0E4BF1889357700C2CD20 /* All Fonts */,
+				EDD0E4C01889358300C2CD20 /* Favourite */,
 				ED701B3C1885231C005D7F6B /* Images.xcassets */,
 				ED701B391885231C005D7F6B /* iOS7Fonts.xcdatamodeld */,
 				ED701B2E1885231C005D7F6B /* Supporting Files */,
@@ -143,6 +148,8 @@
 		ED701B2E1885231C005D7F6B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EDD0E4BB1889314300C2CD20 /* all_30@2x.png */,
+				EDD0E4BC1889314300C2CD20 /* favorite_star_30@2x.png */,
 				ED701B2F1885231C005D7F6B /* iOS7Fonts-Info.plist */,
 				ED701B301885231C005D7F6B /* InfoPlist.strings */,
 				ED701B331885231C005D7F6B /* main.m */,
@@ -167,6 +174,29 @@
 				ED701B4D1885231C005D7F6B /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EDD0E4BF1889357700C2CD20 /* All Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				ED701B5A188523AE005D7F6B /* ViewController.h */,
+				ED701B5B188523AE005D7F6B /* ViewController.m */,
+				ED701B5C188523AE005D7F6B /* ViewController.xib */,
+				ED701B5F18853D3F005D7F6B /* FontDetailViewController.h */,
+				ED701B6018853D3F005D7F6B /* FontDetailViewController.m */,
+				ED701B6118853D3F005D7F6B /* FontDetailViewController.xib */,
+			);
+			name = "All Fonts";
+			sourceTree = "<group>";
+		};
+		EDD0E4C01889358300C2CD20 /* Favourite */ = {
+			isa = PBXGroup;
+			children = (
+				EDD0E4B218891B8A00C2CD20 /* FavouriteViewController.h */,
+				EDD0E4B318891B8A00C2CD20 /* FavouriteViewController.m */,
+				EDD0E4B418891B8A00C2CD20 /* FavouriteViewController.xib */,
+			);
+			name = Favourite;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,10 +274,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDD0E4BE1889314300C2CD20 /* favorite_star_30@2x.png in Resources */,
 				ED701B321885231C005D7F6B /* InfoPlist.strings in Resources */,
 				ED701B5E188523AE005D7F6B /* ViewController.xib in Resources */,
 				ED701B6318853D3F005D7F6B /* FontDetailViewController.xib in Resources */,
 				ED701B3D1885231C005D7F6B /* Images.xcassets in Resources */,
+				EDD0E4BD1889314300C2CD20 /* all_30@2x.png in Resources */,
+				EDD0E4B618891B8A00C2CD20 /* FavouriteViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +299,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDD0E4B518891B8A00C2CD20 /* FavouriteViewController.m in Sources */,
 				ED701B381885231C005D7F6B /* AppDelegate.m in Sources */,
 				ED701B6218853D3F005D7F6B /* FontDetailViewController.m in Sources */,
 				ED701B341885231C005D7F6B /* main.m in Sources */,
@@ -473,6 +507,7 @@
 				ED701B561885231C005D7F6B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ED701B571885231C005D7F6B /* Build configuration list for PBXNativeTarget "iOS7FontsTests" */ = {
 			isa = XCConfigurationList;
@@ -481,6 +516,7 @@
 				ED701B591885231C005D7F6B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

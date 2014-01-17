@@ -20,8 +20,16 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
-        self.title = @"Available All Fonts on iPhone";
+
+        // set tab title
+        self.title = @"All Fonts";
+        
+        // Set different title for navigation controller
+        // Note: self.title will reset Nav Title. Use it first if you want different titles
+        
+        self.navigationItem.title = @"Available All Fonts on iPhone";
+        [self.tabBarItem setImage:[[UIImage imageNamed:@"all_30"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+        
     }
     return self;
 }

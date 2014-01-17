@@ -18,10 +18,18 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    _viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
-    _navController = [[UINavigationController alloc] initWithRootViewController:_viewController];
     
-    [self.window setRootViewController:_navController];
+    _tabBarController = [[UITabBarController alloc] init];
+    
+    
+    _viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
+    UINavigationController *navViewController = [[UINavigationController alloc] initWithRootViewController:_viewController];
+    
+    _favViewController = [[FavouriteViewController alloc] initWithNibName:@"FavouriteViewController" bundle:nil];
+    UINavigationController *navFavViewController = [[UINavigationController alloc] initWithRootViewController:_favViewController];
+
+    _tabBarController.viewControllers = [NSArray arrayWithObjects:navViewController,navFavViewController, nil];//@[navViewController,navFavViewController];
+    [self.window setRootViewController:_tabBarController];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
@@ -149,5 +157,6 @@
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
+
 
 @end
