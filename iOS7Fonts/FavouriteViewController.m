@@ -101,12 +101,29 @@
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
 
     if ([favouriteFonts count] > 0) {
-        return [NSString stringWithFormat:@"Total Fonts : %d",[favouriteFonts count]];
+        return [NSString stringWithFormat:@"Total Fonts : %lu",(unsigned long)[favouriteFonts count]];
 
     }
     return nil;
     
 }
+
+//- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+//    return YES;
+//}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        [appDelegate removeFontFromFavourite:cell.textLabel.text];
+        
+        favouriteFonts  = [appDelegate getAllFavouriteFonts];
+        [_tblView reloadData];
+
+    }
+}
+
 
 #pragma mark - User defined methods
 
