@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "Appirater.h"
 
 @implementation AppDelegate
 
@@ -36,6 +37,22 @@
     [self.window setRootViewController:_tabBarController];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    [Appirater setAppId:@"718873921"];
+    [Appirater setDaysUntilPrompt:1];
+    [Appirater setUsesUntilPrompt:5];
+    [Appirater setSignificantEventsUntilPrompt:-1];
+    [Appirater setTimeBeforeReminding:0];
+    
+#if DEBUG
+    [Appirater setDebug:YES];
+#else
+    [Appirater setDebug:NO];
+#endif
+
+    
+    [Appirater appLaunched:YES];
+    
     return YES;
 }
 
@@ -54,6 +71,7 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    [Appirater appEnteredForeground:YES];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
