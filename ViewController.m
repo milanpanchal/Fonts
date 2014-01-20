@@ -10,12 +10,15 @@
 #import "FontDetailViewController.h"
 #import "AppDelegate.h"
 
+
 @interface ViewController () {
     NSArray *fontFamilyNames;
     AppDelegate *appDelegate;
 }
 
 @end
+
+
 
 @implementation ViewController
 
@@ -42,6 +45,7 @@
     [super viewDidLoad];
     fontFamilyNames = [[UIFont familyNames] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
     appDelegate     = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -58,6 +62,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 
 #pragma mark - UITableView DataSource/Delegate
@@ -115,11 +120,11 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
     FontDetailViewController *fontDetailVC = [[FontDetailViewController alloc] initWithNibName:@"FontDetailViewController" bundle:nil];
-    
     [self.navigationController pushViewController:fontDetailVC animated:YES];
     
     fontDetailVC.fontFamilyNameString   = [fontFamilyNames objectAtIndex:indexPath.section];
     fontDetailVC.fontNameString         = [[cell textLabel] text];
+
 }
 
 //- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {

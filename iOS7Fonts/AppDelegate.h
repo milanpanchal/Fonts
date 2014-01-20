@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "ViewController.h"
 #import "FavouriteViewController.h"
+#import "AboutMeViewController.h"
+
 
 #define kFavourtiteFonts @"kFavouriteFonts"
 
@@ -17,6 +19,7 @@
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) ViewController *viewController;
 @property (strong, nonatomic) FavouriteViewController *favViewController;
+@property (strong, nonatomic) AboutMeViewController *aboutViewController;
 
 @property (strong, nonatomic) UITabBarController *tabBarController ;
 

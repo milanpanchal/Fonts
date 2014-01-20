@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AboutMeViewController">
+            <connections>
+                <outlet property="profilePic" destination="ljt-Hy-dmE" id="K5w-Tx-nYk"/>
+                <outlet property="view" destination="VAt-GV-hRG" id="WLc-f4-2iC"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="VAt-GV-hRG">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jkp-Wu-Lnk">
+                    <rect key="frame" x="57" y="160" width="51" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="tintColor" red="1" green="0.26553552130000002" blue="0.11936543500000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="luo-wY-OpL"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                    <color key="textColor" red="0.79607850309999995" green="0.45882356169999999" blue="0.45882356169999999" alpha="1" colorSpace="deviceRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sam.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ljt-Hy-dmE">
+                    <rect key="frame" x="120" y="71" width="80" height="80"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Milan K. Panchal" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H86-wE-EPw">
+                    <rect key="frame" x="122" y="160" width="117" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="tintColor" red="1" green="0.26553552130000002" blue="0.11936543500000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                    <color key="textColor" white="0.40392157439999998" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Twitter" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hco-11-Ntk">
+                    <rect key="frame" x="47" y="194" width="61" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="tintColor" red="1" green="0.26553552130000002" blue="0.11936543500000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="lb6-X4-vzT"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                    <color key="textColor" red="0.79607850309999995" green="0.45882356169999999" blue="0.45882356169999999" alpha="1" colorSpace="deviceRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blog" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WKn-ye-BC9">
+                    <rect key="frame" x="47" y="322" width="61" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="tintColor" red="1" green="0.26553552130000002" blue="0.11936543500000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="DOU-vb-PTU"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                    <color key="textColor" red="0.79607850309999995" green="0.45882356169999999" blue="0.45882356169999999" alpha="1" colorSpace="deviceRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q9h-Ym-3r7">
+                    <rect key="frame" x="42" y="290" width="66" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="tintColor" red="1" green="0.26553552130000002" blue="0.11936543500000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                    <color key="textColor" red="0.79607850309999995" green="0.45882356169999999" blue="0.45882356169999999" alpha="1" colorSpace="deviceRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@milan_panchal24" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VhY-dJ-w4M">
+                    <rect key="frame" x="122" y="194" width="132" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="tintColor" red="1" green="0.26553552130000002" blue="0.11936543500000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                    <color key="textColor" white="0.40392157439999998" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Facebook" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCn-Ma-TGG">
+                    <rect key="frame" x="41" y="228" width="67" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="tintColor" red="1" green="0.26553552130000002" blue="0.11936543500000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="yDp-pN-UQP"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                    <color key="textColor" red="0.79607850309999995" green="0.45882356169999999" blue="0.45882356169999999" alpha="1" colorSpace="deviceRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="fb.me/MilanPantech" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mS7-vl-NLE">
+                    <rect key="frame" x="122" y="228" width="139" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="tintColor" red="1" green="0.26553552130000002" blue="0.11936543500000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                    <color key="textColor" white="0.40392157439999998" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="www.techfuzionwithsam.wordpress.com" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="178" translatesAutoresizingMaskIntoConstraints="NO" id="nV0-6Y-MLE">
+                    <rect key="frame" x="122" y="322" width="178" height="39"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="tintColor" red="1" green="0.26553552130000002" blue="0.11936543500000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                    <color key="textColor" white="0.40392157439999998" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="www.mypoemswithsam.wordpress.com" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="172" translatesAutoresizingMaskIntoConstraints="NO" id="xIs-Fk-jAd">
+                    <rect key="frame" x="122" y="369" width="172" height="39"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="tintColor" red="1" green="0.26553552130000002" blue="0.11936543500000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                    <color key="textColor" white="0.40392157439999998" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pantech" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E3p-Dp-9DP">
+                    <rect key="frame" x="122" y="290" width="94" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="tintColor" red="1" green="0.26553552130000002" blue="0.11936543500000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="94" id="Wc9-w2-cAj"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                    <color key="textColor" white="0.40392157439999998" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LinkedIn" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AN4-sy-m5b">
+                    <rect key="frame" x="41" y="258" width="67" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="tintColor" red="1" green="0.26553552130000002" blue="0.11936543500000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="Ova-KP-YHi"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                    <color key="textColor" red="0.79607850309999995" green="0.45882356169999999" blue="0.45882356169999999" alpha="1" colorSpace="deviceRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/in/milanpanchal" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9jr-3S-M6f">
+                    <rect key="frame" x="122" y="258" width="221" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="tintColor" red="1" green="0.26553552130000002" blue="0.11936543500000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                    <color key="textColor" white="0.40392157439999998" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="bCn-Ma-TGG" firstAttribute="leading" secondItem="AN4-sy-m5b" secondAttribute="leading" id="0XF-aR-HaL"/>
+                <constraint firstItem="xIs-Fk-jAd" firstAttribute="top" secondItem="nV0-6Y-MLE" secondAttribute="bottom" constant="8" symbolic="YES" id="0v4-nw-5G5"/>
+                <constraint firstItem="bCn-Ma-TGG" firstAttribute="top" secondItem="mS7-vl-NLE" secondAttribute="top" id="1jL-d7-JbK"/>
+                <constraint firstItem="mS7-vl-NLE" firstAttribute="leading" secondItem="VhY-dJ-w4M" secondAttribute="leading" id="68M-uA-kxi"/>
+                <constraint firstItem="hco-11-Ntk" firstAttribute="leading" secondItem="VAt-GV-hRG" secondAttribute="leading" constant="47" id="82I-M1-t7j"/>
+                <constraint firstItem="E3p-Dp-9DP" firstAttribute="centerY" secondItem="Q9h-Ym-3r7" secondAttribute="centerY" id="Df1-bk-n4Z"/>
+                <constraint firstItem="E3p-Dp-9DP" firstAttribute="leading" secondItem="9jr-3S-M6f" secondAttribute="leading" id="EgB-4I-QI7"/>
+                <constraint firstItem="bCn-Ma-TGG" firstAttribute="trailing" secondItem="AN4-sy-m5b" secondAttribute="trailing" id="G63-n7-23I"/>
+                <constraint firstItem="bCn-Ma-TGG" firstAttribute="baseline" secondItem="mS7-vl-NLE" secondAttribute="baseline" id="LSl-Vj-26E"/>
+                <constraint firstItem="bCn-Ma-TGG" firstAttribute="top" secondItem="hco-11-Ntk" secondAttribute="bottom" constant="13" id="NGU-Q6-2qJ"/>
+                <constraint firstItem="H86-wE-EPw" firstAttribute="leading" secondItem="jkp-Wu-Lnk" secondAttribute="trailing" constant="14" id="OuA-VQ-OLf"/>
+                <constraint firstItem="9jr-3S-M6f" firstAttribute="leading" secondItem="mS7-vl-NLE" secondAttribute="leading" id="Tdb-sQ-qGH"/>
+                <constraint firstItem="AN4-sy-m5b" firstAttribute="trailing" secondItem="Q9h-Ym-3r7" secondAttribute="trailing" id="URs-CZ-S1n"/>
+                <constraint firstItem="nV0-6Y-MLE" firstAttribute="top" secondItem="E3p-Dp-9DP" secondAttribute="bottom" constant="11" id="VGv-qD-VnK"/>
+                <constraint firstItem="hco-11-Ntk" firstAttribute="trailing" secondItem="jkp-Wu-Lnk" secondAttribute="trailing" id="Vp6-xG-drM"/>
+                <constraint firstItem="Q9h-Ym-3r7" firstAttribute="top" secondItem="E3p-Dp-9DP" secondAttribute="top" id="X16-nL-QoV"/>
+                <constraint firstItem="Q9h-Ym-3r7" firstAttribute="top" secondItem="AN4-sy-m5b" secondAttribute="bottom" constant="11" id="YJE-ae-eZL"/>
+                <constraint firstAttribute="trailing" secondItem="9jr-3S-M6f" secondAttribute="trailing" constant="-23" id="ZB0-eC-UYJ"/>
+                <constraint firstItem="jkp-Wu-Lnk" firstAttribute="leading" secondItem="VAt-GV-hRG" secondAttribute="leading" constant="57" id="aXX-zb-0Fe"/>
+                <constraint firstItem="jkp-Wu-Lnk" firstAttribute="baseline" secondItem="H86-wE-EPw" secondAttribute="baseline" id="acU-wl-gXY"/>
+                <constraint firstAttribute="centerX" secondItem="ljt-Hy-dmE" secondAttribute="centerX" id="alG-8c-ruI"/>
+                <constraint firstItem="hco-11-Ntk" firstAttribute="top" secondItem="jkp-Wu-Lnk" secondAttribute="bottom" constant="13" id="bOP-3K-cJw"/>
+                <constraint firstAttribute="trailing" secondItem="nV0-6Y-MLE" secondAttribute="trailing" constant="20" symbolic="YES" id="cN0-jb-j5g"/>
+                <constraint firstItem="hco-11-Ntk" firstAttribute="leading" secondItem="WKn-ye-BC9" secondAttribute="leading" id="daR-Cs-kV1"/>
+                <constraint firstItem="9jr-3S-M6f" firstAttribute="top" secondItem="AN4-sy-m5b" secondAttribute="top" id="fFy-gc-WxP"/>
+                <constraint firstItem="H86-wE-EPw" firstAttribute="top" secondItem="ljt-Hy-dmE" secondAttribute="bottom" constant="9" id="iui-V0-MYO"/>
+                <constraint firstAttribute="trailing" secondItem="xIs-Fk-jAd" secondAttribute="trailing" constant="26" id="jRg-RD-Xdr"/>
+                <constraint firstItem="VhY-dJ-w4M" firstAttribute="baseline" secondItem="hco-11-Ntk" secondAttribute="baseline" id="lC2-Mc-rLP"/>
+                <constraint firstItem="ljt-Hy-dmE" firstAttribute="top" secondItem="VAt-GV-hRG" secondAttribute="top" constant="71" id="ljG-sE-VsB"/>
+                <constraint firstItem="WKn-ye-BC9" firstAttribute="top" secondItem="nV0-6Y-MLE" secondAttribute="top" id="mGE-OS-ltI"/>
+                <constraint firstItem="WKn-ye-BC9" firstAttribute="trailing" secondItem="Q9h-Ym-3r7" secondAttribute="trailing" id="oRr-sS-uv9"/>
+                <constraint firstItem="hco-11-Ntk" firstAttribute="top" secondItem="VhY-dJ-w4M" secondAttribute="top" id="oxh-vY-Jsh"/>
+                <constraint firstItem="AN4-sy-m5b" firstAttribute="baseline" secondItem="9jr-3S-M6f" secondAttribute="baseline" id="oyF-rn-UG5"/>
+                <constraint firstItem="AN4-sy-m5b" firstAttribute="top" secondItem="bCn-Ma-TGG" secondAttribute="bottom" constant="9" id="p3G-Lw-8GL"/>
+                <constraint firstItem="VhY-dJ-w4M" firstAttribute="leading" secondItem="H86-wE-EPw" secondAttribute="leading" id="qvI-zc-rnt"/>
+                <constraint firstItem="nV0-6Y-MLE" firstAttribute="leading" secondItem="xIs-Fk-jAd" secondAttribute="leading" id="sjy-Sh-izj"/>
+                <constraint firstItem="E3p-Dp-9DP" firstAttribute="leading" secondItem="nV0-6Y-MLE" secondAttribute="leading" id="ssQ-pQ-2B2"/>
+                <constraint firstItem="bCn-Ma-TGG" firstAttribute="leading" secondItem="VAt-GV-hRG" secondAttribute="leading" constant="41" id="tGH-Hb-jd3"/>
+                <constraint firstItem="hco-11-Ntk" firstAttribute="trailing" secondItem="bCn-Ma-TGG" secondAttribute="trailing" id="vhL-vj-Vrm"/>
+                <constraint firstItem="jkp-Wu-Lnk" firstAttribute="top" secondItem="H86-wE-EPw" secondAttribute="top" id="yzE-bM-KYy"/>
+            </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="sam.jpg" width="80" height="80"/>
+    </resources>
+</document>

@@ -7,9 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED562ADA188D3CD4004BAE11 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED701B291885231C005D7F6B /* UIKit.framework */; };
+		ED562ADF188D3D67004BAE11 /* AboutMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED562ADD188D3D67004BAE11 /* AboutMeViewController.m */; };
+		ED562AE0188D3D67004BAE11 /* AboutMeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED562ADE188D3D67004BAE11 /* AboutMeViewController.xib */; };
+		ED562AE6188D3EDB004BAE11 /* all_30@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED562AE3188D3EDB004BAE11 /* all_30@2x.png */; };
+		ED562AE7188D3EDB004BAE11 /* favorite_star_30@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED562AE4188D3EDB004BAE11 /* favorite_star_30@2x.png */; };
+		ED562AE8188D3EDB004BAE11 /* favorite_star_filled_30@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED562AE5188D3EDB004BAE11 /* favorite_star_filled_30@2x.png */; };
+		ED562AEA188D3F0D004BAE11 /* AboutUs@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED562AE9188D3F0D004BAE11 /* AboutUs@2x.png */; };
+		ED562AEE188D44DF004BAE11 /* sam.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED562AED188D44DF004BAE11 /* sam.jpg */; };
 		ED701B261885231C005D7F6B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED701B251885231C005D7F6B /* Foundation.framework */; };
 		ED701B281885231C005D7F6B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED701B271885231C005D7F6B /* CoreGraphics.framework */; };
-		ED701B2A1885231C005D7F6B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED701B291885231C005D7F6B /* UIKit.framework */; };
 		ED701B2C1885231C005D7F6B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED701B2B1885231C005D7F6B /* CoreData.framework */; };
 		ED701B321885231C005D7F6B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED701B301885231C005D7F6B /* InfoPlist.strings */; };
 		ED701B341885231C005D7F6B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ED701B331885231C005D7F6B /* main.m */; };
@@ -28,9 +35,6 @@
 		ED701B6318853D3F005D7F6B /* FontDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED701B6118853D3F005D7F6B /* FontDetailViewController.xib */; };
 		EDD0E4B518891B8A00C2CD20 /* FavouriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD0E4B318891B8A00C2CD20 /* FavouriteViewController.m */; };
 		EDD0E4B618891B8A00C2CD20 /* FavouriteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDD0E4B418891B8A00C2CD20 /* FavouriteViewController.xib */; };
-		EDD0E4BD1889314300C2CD20 /* all_30@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EDD0E4BB1889314300C2CD20 /* all_30@2x.png */; };
-		EDD0E4BE1889314300C2CD20 /* favorite_star_30@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EDD0E4BC1889314300C2CD20 /* favorite_star_30@2x.png */; };
-		EDD0E4C21889400500C2CD20 /* favorite_star_filled_30@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EDD0E4C11889400500C2CD20 /* favorite_star_filled_30@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		ED562ADC188D3D67004BAE11 /* AboutMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutMeViewController.h; sourceTree = "<group>"; };
+		ED562ADD188D3D67004BAE11 /* AboutMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutMeViewController.m; sourceTree = "<group>"; };
+		ED562ADE188D3D67004BAE11 /* AboutMeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutMeViewController.xib; sourceTree = "<group>"; };
+		ED562AE3188D3EDB004BAE11 /* all_30@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "all_30@2x.png"; sourceTree = "<group>"; };
+		ED562AE4188D3EDB004BAE11 /* favorite_star_30@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favorite_star_30@2x.png"; sourceTree = "<group>"; };
+		ED562AE5188D3EDB004BAE11 /* favorite_star_filled_30@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favorite_star_filled_30@2x.png"; sourceTree = "<group>"; };
+		ED562AE9188D3F0D004BAE11 /* AboutUs@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AboutUs@2x.png"; sourceTree = "<group>"; };
+		ED562AED188D44DF004BAE11 /* sam.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sam.jpg; sourceTree = "<group>"; };
 		ED701B221885231C005D7F6B /* iOS7Fonts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS7Fonts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED701B251885231C005D7F6B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		ED701B271885231C005D7F6B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -71,9 +83,6 @@
 		EDD0E4B218891B8A00C2CD20 /* FavouriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouriteViewController.h; sourceTree = "<group>"; };
 		EDD0E4B318891B8A00C2CD20 /* FavouriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouriteViewController.m; sourceTree = "<group>"; };
 		EDD0E4B418891B8A00C2CD20 /* FavouriteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavouriteViewController.xib; sourceTree = "<group>"; };
-		EDD0E4BB1889314300C2CD20 /* all_30@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "all_30@2x.png"; sourceTree = "<group>"; };
-		EDD0E4BC1889314300C2CD20 /* favorite_star_30@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favorite_star_30@2x.png"; sourceTree = "<group>"; };
-		EDD0E4C11889400500C2CD20 /* favorite_star_filled_30@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favorite_star_filled_30@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,10 +90,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED562ADA188D3CD4004BAE11 /* UIKit.framework in Frameworks */,
+				ED701B261885231C005D7F6B /* Foundation.framework in Frameworks */,
 				ED701B281885231C005D7F6B /* CoreGraphics.framework in Frameworks */,
 				ED701B2C1885231C005D7F6B /* CoreData.framework in Frameworks */,
-				ED701B2A1885231C005D7F6B /* UIKit.framework in Frameworks */,
-				ED701B261885231C005D7F6B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +111,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ED562AE1188D3D7D004BAE11 /* AboutMe */ = {
+			isa = PBXGroup;
+			children = (
+				ED562ADC188D3D67004BAE11 /* AboutMeViewController.h */,
+				ED562ADD188D3D67004BAE11 /* AboutMeViewController.m */,
+				ED562ADE188D3D67004BAE11 /* AboutMeViewController.xib */,
+			);
+			name = AboutMe;
+			sourceTree = "<group>";
+		};
+		ED562AE2188D3EDB004BAE11 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				ED562AED188D44DF004BAE11 /* sam.jpg */,
+				ED562AE9188D3F0D004BAE11 /* AboutUs@2x.png */,
+				ED562AE3188D3EDB004BAE11 /* all_30@2x.png */,
+				ED562AE4188D3EDB004BAE11 /* favorite_star_30@2x.png */,
+				ED562AE5188D3EDB004BAE11 /* favorite_star_filled_30@2x.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		ED701B191885231C005D7F6B = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +171,7 @@
 				ED701B371885231C005D7F6B /* AppDelegate.m */,
 				EDD0E4BF1889357700C2CD20 /* All Fonts */,
 				EDD0E4C01889358300C2CD20 /* Favourite */,
+				ED562AE1188D3D7D004BAE11 /* AboutMe */,
 				ED701B3C1885231C005D7F6B /* Images.xcassets */,
 				ED701B391885231C005D7F6B /* iOS7Fonts.xcdatamodeld */,
 				ED701B2E1885231C005D7F6B /* Supporting Files */,
@@ -150,9 +182,7 @@
 		ED701B2E1885231C005D7F6B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				EDD0E4C11889400500C2CD20 /* favorite_star_filled_30@2x.png */,
-				EDD0E4BB1889314300C2CD20 /* all_30@2x.png */,
-				EDD0E4BC1889314300C2CD20 /* favorite_star_30@2x.png */,
+				ED562AE2188D3EDB004BAE11 /* Images */,
 				ED701B2F1885231C005D7F6B /* iOS7Fonts-Info.plist */,
 				ED701B301885231C005D7F6B /* InfoPlist.strings */,
 				ED701B331885231C005D7F6B /* main.m */,
@@ -277,14 +307,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDD0E4BE1889314300C2CD20 /* favorite_star_30@2x.png in Resources */,
+				ED562AEA188D3F0D004BAE11 /* AboutUs@2x.png in Resources */,
 				ED701B321885231C005D7F6B /* InfoPlist.strings in Resources */,
+				ED562AE8188D3EDB004BAE11 /* favorite_star_filled_30@2x.png in Resources */,
 				ED701B5E188523AE005D7F6B /* ViewController.xib in Resources */,
+				ED562AEE188D44DF004BAE11 /* sam.jpg in Resources */,
+				ED562AE6188D3EDB004BAE11 /* all_30@2x.png in Resources */,
 				ED701B6318853D3F005D7F6B /* FontDetailViewController.xib in Resources */,
+				ED562AE0188D3D67004BAE11 /* AboutMeViewController.xib in Resources */,
 				ED701B3D1885231C005D7F6B /* Images.xcassets in Resources */,
-				EDD0E4C21889400500C2CD20 /* favorite_star_filled_30@2x.png in Resources */,
-				EDD0E4BD1889314300C2CD20 /* all_30@2x.png in Resources */,
 				EDD0E4B618891B8A00C2CD20 /* FavouriteViewController.xib in Resources */,
+				ED562AE7188D3EDB004BAE11 /* favorite_star_30@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +340,7 @@
 				ED701B381885231C005D7F6B /* AppDelegate.m in Sources */,
 				ED701B6218853D3F005D7F6B /* FontDetailViewController.m in Sources */,
 				ED701B341885231C005D7F6B /* main.m in Sources */,
+				ED562ADF188D3D67004BAE11 /* AboutMeViewController.m in Sources */,
 				ED701B5D188523AE005D7F6B /* ViewController.m in Sources */,
 				ED701B3B1885231C005D7F6B /* iOS7Fonts.xcdatamodeld in Sources */,
 			);
@@ -429,9 +463,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/milan.panchal/Milan_All_Stuff/Project_Workspace/iOS7Fonts/MoPubSDK/AdNetworkSupport/Millennial/SDK/SpeechKit,
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iOS7Fonts/iOS7Fonts-Prefix.pch";
 				INFOPLIST_FILE = "iOS7Fonts/iOS7Fonts-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/milan.panchal/Milan_All_Stuff/Project_Workspace/iOS7Fonts/MoPubSDK/AdNetworkSupport/GoogleAdMob/SDK,
+					/Users/milan.panchal/Milan_All_Stuff/Project_Workspace/iOS7Fonts/MoPubSDK/AdNetworkSupport/Millennial/SDK,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -442,9 +486,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/milan.panchal/Milan_All_Stuff/Project_Workspace/iOS7Fonts/MoPubSDK/AdNetworkSupport/Millennial/SDK/SpeechKit,
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iOS7Fonts/iOS7Fonts-Prefix.pch";
 				INFOPLIST_FILE = "iOS7Fonts/iOS7Fonts-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/milan.panchal/Milan_All_Stuff/Project_Workspace/iOS7Fonts/MoPubSDK/AdNetworkSupport/GoogleAdMob/SDK,
+					/Users/milan.panchal/Milan_All_Stuff/Project_Workspace/iOS7Fonts/MoPubSDK/AdNetworkSupport/Millennial/SDK,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
