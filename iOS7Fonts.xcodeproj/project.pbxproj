@@ -42,6 +42,8 @@
 		EDA8260E188E71DA00A2455E /* UnicodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA8260C188E71DA00A2455E /* UnicodeViewController.m */; };
 		EDA8260F188E71DA00A2455E /* UnicodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDA8260D188E71DA00A2455E /* UnicodeViewController.xib */; };
 		EDA82612188E748A00A2455E /* Unicode.png in Resources */ = {isa = PBXBuildFile; fileRef = EDA82611188E748A00A2455E /* Unicode.png */; };
+		EDA82615188E962000A2455E /* CustomUnicodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA82614188E962000A2455E /* CustomUnicodeCell.m */; };
+		EDA82617188E963100A2455E /* CustomUnicodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDA82616188E963100A2455E /* CustomUnicodeCell.xib */; };
 		EDD0E4B518891B8A00C2CD20 /* FavouriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD0E4B318891B8A00C2CD20 /* FavouriteViewController.m */; };
 		EDD0E4B618891B8A00C2CD20 /* FavouriteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDD0E4B418891B8A00C2CD20 /* FavouriteViewController.xib */; };
 /* End PBXBuildFile section */
@@ -131,6 +133,9 @@
 		EDA8260C188E71DA00A2455E /* UnicodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnicodeViewController.m; sourceTree = "<group>"; };
 		EDA8260D188E71DA00A2455E /* UnicodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnicodeViewController.xib; sourceTree = "<group>"; };
 		EDA82611188E748A00A2455E /* Unicode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Unicode.png; sourceTree = "<group>"; };
+		EDA82613188E962000A2455E /* CustomUnicodeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomUnicodeCell.h; sourceTree = "<group>"; };
+		EDA82614188E962000A2455E /* CustomUnicodeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomUnicodeCell.m; sourceTree = "<group>"; };
+		EDA82616188E963100A2455E /* CustomUnicodeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomUnicodeCell.xib; sourceTree = "<group>"; };
 		EDD0E4B218891B8A00C2CD20 /* FavouriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouriteViewController.h; sourceTree = "<group>"; };
 		EDD0E4B318891B8A00C2CD20 /* FavouriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouriteViewController.m; sourceTree = "<group>"; };
 		EDD0E4B418891B8A00C2CD20 /* FavouriteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavouriteViewController.xib; sourceTree = "<group>"; };
@@ -284,6 +289,9 @@
 				EDA8260B188E71DA00A2455E /* UnicodeViewController.h */,
 				EDA8260C188E71DA00A2455E /* UnicodeViewController.m */,
 				EDA8260D188E71DA00A2455E /* UnicodeViewController.xib */,
+				EDA82613188E962000A2455E /* CustomUnicodeCell.h */,
+				EDA82614188E962000A2455E /* CustomUnicodeCell.m */,
+				EDA82616188E963100A2455E /* CustomUnicodeCell.xib */,
 			);
 			name = Unicodes;
 			sourceTree = "<group>";
@@ -418,6 +426,7 @@
 			files = (
 				ED562B1A188D5848004BAE11 /* AppiraterLocalizable.strings in Resources */,
 				ED562B1B188D5848004BAE11 /* CHANGELOG.md in Resources */,
+				EDA82617188E963100A2455E /* CustomUnicodeCell.xib in Resources */,
 				ED562AEA188D3F0D004BAE11 /* AboutUs@2x.png in Resources */,
 				ED701B321885231C005D7F6B /* InfoPlist.strings in Resources */,
 				ED562AE8188D3EDB004BAE11 /* favorite_star_filled_30@2x.png in Resources */,
@@ -456,6 +465,7 @@
 				ED701B381885231C005D7F6B /* AppDelegate.m in Sources */,
 				ED701B6218853D3F005D7F6B /* FontDetailViewController.m in Sources */,
 				ED701B341885231C005D7F6B /* main.m in Sources */,
+				EDA82615188E962000A2455E /* CustomUnicodeCell.m in Sources */,
 				ED562ADF188D3D67004BAE11 /* AboutMeViewController.m in Sources */,
 				EDA8260E188E71DA00A2455E /* UnicodeViewController.m in Sources */,
 				ED701B5D188523AE005D7F6B /* ViewController.m in Sources */,
