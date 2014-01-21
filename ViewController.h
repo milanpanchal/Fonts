@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate, UISearchDisplayDelegate>
+@interface ViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tblView;
 
