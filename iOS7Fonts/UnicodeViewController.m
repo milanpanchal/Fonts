@@ -13,7 +13,7 @@
 #define kMaxUnicodeInRow    7
 #define kBorderWidth        2.0f
 #define kBorderColor        [[UIColor grayColor] CGColor]
-#define kFontName           @"AcademyEngravedLetPlain"
+#define kFontName           @"AmericanTypewriter"
 #define kFontSize           14.00f
 
 @interface UnicodeViewController () {
@@ -102,7 +102,7 @@
 
         NSString *unicodeString = unicodes[(kMaxUnicodeInRow * indexPath.row) + i];
         
-        NSString *unicodeChar = [NSString stringWithFormat:@"\\u%@",unicodeString];
+        NSString *unicodeChar = [NSString stringWithFormat:@"\\u%@\n\n%@",unicodeString,unicodeString];
         NSData *data = [unicodeChar dataUsingEncoding:NSASCIIStringEncoding];
         NSString *converted = [[NSString alloc] initWithData:data encoding:NSNonLossyASCIIStringEncoding];
 

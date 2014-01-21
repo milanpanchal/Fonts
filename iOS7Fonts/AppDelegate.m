@@ -38,7 +38,7 @@
 
     
     _tabBarController.viewControllers = @[navViewController,navFavViewController,navUnicodeViewController,navAboutViewController];
-    _tabBarController.selectedIndex = 2;
+    _tabBarController.selectedViewController = navAboutViewController;
 
     [self.window setRootViewController:_tabBarController];
     self.window.backgroundColor = [UIColor whiteColor];
