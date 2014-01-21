@@ -39,6 +39,9 @@
 		ED701B5E188523AE005D7F6B /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED701B5C188523AE005D7F6B /* ViewController.xib */; };
 		ED701B6218853D3F005D7F6B /* FontDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED701B6018853D3F005D7F6B /* FontDetailViewController.m */; };
 		ED701B6318853D3F005D7F6B /* FontDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED701B6118853D3F005D7F6B /* FontDetailViewController.xib */; };
+		EDA8260E188E71DA00A2455E /* UnicodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA8260C188E71DA00A2455E /* UnicodeViewController.m */; };
+		EDA8260F188E71DA00A2455E /* UnicodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDA8260D188E71DA00A2455E /* UnicodeViewController.xib */; };
+		EDA82612188E748A00A2455E /* Unicode.png in Resources */ = {isa = PBXBuildFile; fileRef = EDA82611188E748A00A2455E /* Unicode.png */; };
 		EDD0E4B518891B8A00C2CD20 /* FavouriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD0E4B318891B8A00C2CD20 /* FavouriteViewController.m */; };
 		EDD0E4B618891B8A00C2CD20 /* FavouriteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDD0E4B418891B8A00C2CD20 /* FavouriteViewController.xib */; };
 /* End PBXBuildFile section */
@@ -124,6 +127,10 @@
 		ED701B5F18853D3F005D7F6B /* FontDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FontDetailViewController.h; path = ../FontDetailViewController.h; sourceTree = "<group>"; };
 		ED701B6018853D3F005D7F6B /* FontDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FontDetailViewController.m; path = ../FontDetailViewController.m; sourceTree = "<group>"; };
 		ED701B6118853D3F005D7F6B /* FontDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FontDetailViewController.xib; path = ../FontDetailViewController.xib; sourceTree = "<group>"; };
+		EDA8260B188E71DA00A2455E /* UnicodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnicodeViewController.h; sourceTree = "<group>"; };
+		EDA8260C188E71DA00A2455E /* UnicodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnicodeViewController.m; sourceTree = "<group>"; };
+		EDA8260D188E71DA00A2455E /* UnicodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnicodeViewController.xib; sourceTree = "<group>"; };
+		EDA82611188E748A00A2455E /* Unicode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Unicode.png; sourceTree = "<group>"; };
 		EDD0E4B218891B8A00C2CD20 /* FavouriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouriteViewController.h; sourceTree = "<group>"; };
 		EDD0E4B318891B8A00C2CD20 /* FavouriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouriteViewController.m; sourceTree = "<group>"; };
 		EDD0E4B418891B8A00C2CD20 /* FavouriteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavouriteViewController.xib; sourceTree = "<group>"; };
@@ -168,6 +175,7 @@
 		ED562AE2188D3EDB004BAE11 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				EDA82611188E748A00A2455E /* Unicode.png */,
 				ED562AED188D44DF004BAE11 /* sam.jpg */,
 				ED562AE9188D3F0D004BAE11 /* AboutUs@2x.png */,
 				ED562AE3188D3EDB004BAE11 /* all_30@2x.png */,
@@ -231,6 +239,7 @@
 				ED701B371885231C005D7F6B /* AppDelegate.m */,
 				EDD0E4BF1889357700C2CD20 /* All Fonts */,
 				EDD0E4C01889358300C2CD20 /* Favourite */,
+				EDA82610188E71DD00A2455E /* Unicodes */,
 				ED562AE1188D3D7D004BAE11 /* AboutMe */,
 				ED701B3C1885231C005D7F6B /* Images.xcassets */,
 				ED701B391885231C005D7F6B /* iOS7Fonts.xcdatamodeld */,
@@ -267,6 +276,16 @@
 				ED701B4D1885231C005D7F6B /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EDA82610188E71DD00A2455E /* Unicodes */ = {
+			isa = PBXGroup;
+			children = (
+				EDA8260B188E71DA00A2455E /* UnicodeViewController.h */,
+				EDA8260C188E71DA00A2455E /* UnicodeViewController.m */,
+				EDA8260D188E71DA00A2455E /* UnicodeViewController.xib */,
+			);
+			name = Unicodes;
 			sourceTree = "<group>";
 		};
 		EDD0E4BF1889357700C2CD20 /* All Fonts */ = {
@@ -403,6 +422,7 @@
 				ED701B321885231C005D7F6B /* InfoPlist.strings in Resources */,
 				ED562AE8188D3EDB004BAE11 /* favorite_star_filled_30@2x.png in Resources */,
 				ED701B5E188523AE005D7F6B /* ViewController.xib in Resources */,
+				EDA8260F188E71DA00A2455E /* UnicodeViewController.xib in Resources */,
 				ED562B1C188D5848004BAE11 /* README.md in Resources */,
 				ED562B17188D5848004BAE11 /* .gitignore in Resources */,
 				ED562B19188D5848004BAE11 /* Appirater.podspec in Resources */,
@@ -411,6 +431,7 @@
 				ED701B6318853D3F005D7F6B /* FontDetailViewController.xib in Resources */,
 				ED562AE0188D3D67004BAE11 /* AboutMeViewController.xib in Resources */,
 				ED701B3D1885231C005D7F6B /* Images.xcassets in Resources */,
+				EDA82612188E748A00A2455E /* Unicode.png in Resources */,
 				EDD0E4B618891B8A00C2CD20 /* FavouriteViewController.xib in Resources */,
 				ED562AE7188D3EDB004BAE11 /* favorite_star_30@2x.png in Resources */,
 			);
@@ -436,6 +457,7 @@
 				ED701B6218853D3F005D7F6B /* FontDetailViewController.m in Sources */,
 				ED701B341885231C005D7F6B /* main.m in Sources */,
 				ED562ADF188D3D67004BAE11 /* AboutMeViewController.m in Sources */,
+				EDA8260E188E71DA00A2455E /* UnicodeViewController.m in Sources */,
 				ED701B5D188523AE005D7F6B /* ViewController.m in Sources */,
 				ED562B18188D5848004BAE11 /* Appirater.m in Sources */,
 				ED701B3B1885231C005D7F6B /* iOS7Fonts.xcdatamodeld in Sources */,
@@ -605,6 +627,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iOS7Fonts/iOS7Fonts-Prefix.pch";
 				INFOPLIST_FILE = "iOS7Fonts/iOS7Fonts-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/milan.panchal/Milan_All_Stuff/Project_Workspace/iOS7Fonts/MoPubSDK/AdNetworkSupport/GoogleAdMob/SDK,
@@ -628,6 +651,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iOS7Fonts/iOS7Fonts-Prefix.pch";
 				INFOPLIST_FILE = "iOS7Fonts/iOS7Fonts-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/milan.panchal/Milan_All_Stuff/Project_Workspace/iOS7Fonts/MoPubSDK/AdNetworkSupport/GoogleAdMob/SDK,

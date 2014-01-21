@@ -29,11 +29,17 @@
     _favViewController = [[FavouriteViewController alloc] initWithNibName:@"FavouriteViewController" bundle:nil];
     UINavigationController *navFavViewController = [[UINavigationController alloc] initWithRootViewController:_favViewController];
 
+    _unicodeViewController = [[UnicodeViewController alloc] initWithNibName:@"UnicodeViewController" bundle:nil];
+    UINavigationController *navUnicodeViewController = [[UINavigationController alloc] initWithRootViewController:_unicodeViewController];
+    
+
     _aboutViewController = [[AboutMeViewController alloc] initWithNibName:@"AboutMeViewController" bundle:nil];
-    UINavigationController *aboutFavViewController = [[UINavigationController alloc] initWithRootViewController:_aboutViewController];
+    UINavigationController *navAboutViewController = [[UINavigationController alloc] initWithRootViewController:_aboutViewController];
 
     
-    _tabBarController.viewControllers = @[navViewController,navFavViewController,aboutFavViewController]; //[NSArray arrayWithObjects:navViewController,navFavViewController, nil];//
+    _tabBarController.viewControllers = @[navViewController,navFavViewController,navUnicodeViewController,navAboutViewController];
+    _tabBarController.selectedIndex = 2;
+
     [self.window setRootViewController:_tabBarController];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
@@ -45,8 +51,6 @@
     [Appirater setTimeBeforeReminding:0];
     
 #if DEBUG
-    [Appirater setDebug:YES];
-#else
     [Appirater setDebug:NO];
 #endif
 

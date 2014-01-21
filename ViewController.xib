@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController">
             <connections>
+                <outlet property="fontSearchBar" destination="9QN-Fc-DRZ" id="klD-X9-zie"/>
                 <outlet property="tblView" destination="BMH-oL-wgz" id="tcD-Dd-pY7"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
@@ -19,6 +20,14 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <searchBar key="tableHeaderView" contentMode="redraw" id="9QN-Fc-DRZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        <textInputTraits key="textInputTraits"/>
+                        <connections>
+                            <outlet property="delegate" destination="-1" id="NWE-pu-hWy"/>
+                        </connections>
+                    </searchBar>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="cyc-lL-699"/>
                         <outlet property="delegate" destination="-1" id="NYy-ME-VMz"/>
