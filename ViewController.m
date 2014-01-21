@@ -12,8 +12,9 @@
 
 
 @interface ViewController () {
-    NSArray *fontFamilyNames;
     AppDelegate *appDelegate;
+    NSMutableDictionary *fontDictonary;
+    NSUInteger totalFonts;
 }
 
 @end
@@ -43,8 +44,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    fontFamilyNames = [[UIFont familyNames] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
     appDelegate     = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    fontDictonary = [[NSMutableDictionary alloc] init];
+    [self setupFonts];
+    
     
 }
 
@@ -63,18 +67,41 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Font Setup
+
+- (void)setupFonts {
+
+    NSArray *fontFamilies = [[UIFont familyNames] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+
+    for (NSString *fontFamilyName in fontFamilies) {
+        NSArray *fontNames = [UIFont fontNamesForFamilyName:fontFamilyName];
+        [fontDictonary setObject:fontNames forKey:fontFamilyName];
+        totalFonts += [fontNames count];
+    }
+}
 
 
 #pragma mark - UITableView DataSource/Delegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return 1;
+    }else {
+        return [[fontDictonary allKeys] count];
+    }
     
-    return [fontFamilyNames count];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section; {
-    NSArray *fontNames = [UIFont fontNamesForFamilyName:[fontFamilyNames objectAtIndex:section]];
-    return [fontNames count];
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return 1;
+    } else {
+        
+        NSArray *fontNames = [fontDictonary objectForKey:[[[fontDictonary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:section]];
+        return [fontNames count];
+    }
+
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -86,10 +113,18 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
 
-    NSArray *fontNames = [UIFont fontNamesForFamilyName:[fontFamilyNames objectAtIndex:indexPath.section]];
+    NSArray *fontNames = [fontDictonary objectForKey:[[[fontDictonary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:indexPath.section]];
 
-    cell.textLabel.text = [fontNames objectAtIndex:indexPath.row];
-    cell.textLabel.font = [UIFont fontWithName:[fontFamilyNames objectAtIndex:indexPath.section] size:12.00f];
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+//        candy = [filteredCandyArray objectAtIndex:indexPath.row];
+        cell.textLabel.text = @"HI";//[fontNames objectAtIndex:indexPath.row];
+
+
+    } else {
+        cell.textLabel.text = [fontNames objectAtIndex:indexPath.row];
+        cell.textLabel.font = [UIFont fontWithName:[fontNames objectAtIndex:indexPath.row] size:12.00f];
+    }
+    
 
     cell.imageView.userInteractionEnabled = YES;
     
@@ -112,7 +147,7 @@
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return [fontFamilyNames objectAtIndex:section];
+    return [[[fontDictonary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:section];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -122,21 +157,11 @@
     FontDetailViewController *fontDetailVC = [[FontDetailViewController alloc] initWithNibName:@"FontDetailViewController" bundle:nil];
     [self.navigationController pushViewController:fontDetailVC animated:YES];
     
-    fontDetailVC.fontFamilyNameString   = [fontFamilyNames objectAtIndex:indexPath.section];
+    fontDetailVC.fontFamilyNameString   = [[[fontDictonary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:indexPath.section];
     fontDetailVC.fontNameString         = [[cell textLabel] text];
 
 }
 
-//- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
-//
-//    return [[UILocalizedIndexedCollation currentCollation] sectionIndexTitles];
-//}
-//
-//- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
-//
-//    //sectionForSectionIndexTitleAtIndex: is a bit buggy, but is still useable
-//    return [[UILocalizedIndexedCollation currentCollation] sectionForSectionIndexTitleAtIndex:index];
-//}
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -194,9 +219,9 @@
         
     }
 
-    
-
 }
+
+
 
 
 @end
