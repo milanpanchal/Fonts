@@ -48,7 +48,8 @@
     
     fontDictonary = [[NSMutableDictionary alloc] init];
     [self setupFonts];
-    
+    [self setupHeader];
+    [self setupFooter];
     
 }
 
@@ -80,6 +81,44 @@
     }
 }
 
+#pragma mark - Table header/Footer Setup
+- (void)setupHeader {
+  
+    CGRect footerRect = CGRectMake(0, 0, 320, 30);
+    UIView *wrapperView = [[UIView alloc] initWithFrame:footerRect];
+    
+    UILabel *tableFooter = [[UILabel alloc] initWithFrame:footerRect];
+    tableFooter.textColor = [UIColor darkGrayColor];
+    tableFooter.numberOfLines = 0;
+    tableFooter.textAlignment = NSTextAlignmentCenter;
+    tableFooter.backgroundColor = [self.tblView backgroundColor];
+    tableFooter.opaque = YES;
+    tableFooter.font = [UIFont boldSystemFontOfSize:12];
+    tableFooter.text = [NSString stringWithFormat:@"Total Fonts = %d", totalFonts];
+    [wrapperView addSubview:tableFooter];
+    
+    self.tblView.tableHeaderView = wrapperView;
+
+}
+
+- (void)setupFooter {
+    
+    CGRect footerRect = CGRectMake(0, 0, 320, 50);
+    UIView *wrapperView = [[UIView alloc] initWithFrame:footerRect];
+    
+    UILabel *tableFooter = [[UILabel alloc] initWithFrame:footerRect];
+    tableFooter.textColor = [UIColor darkGrayColor];
+    tableFooter.numberOfLines = 0;
+    tableFooter.textAlignment = NSTextAlignmentCenter;
+    tableFooter.backgroundColor = [self.tblView backgroundColor];
+    tableFooter.opaque = YES;
+    tableFooter.font = [UIFont boldSystemFontOfSize:12];
+    tableFooter.text = [NSString stringWithFormat:@"\n\nTotal Fonts = %d", totalFonts];
+    [wrapperView addSubview:tableFooter];
+    
+    self.tblView.tableFooterView = wrapperView;
+
+}
 
 #pragma mark - UITableView DataSource/Delegate
 

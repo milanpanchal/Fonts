@@ -8,7 +8,6 @@
 
 #import "AboutMeViewController.h"
 #import <QuartzCore/QuartzCore.h>
-//#import <ApplicationServices/ApplicationServices.h>
 
 
 @interface AboutMeViewController ()
