@@ -28,10 +28,10 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="BMH-oL-wgz" secondAttribute="bottom" id="HZo-xA-M4P"/>
-                <constraint firstAttribute="trailing" secondItem="BMH-oL-wgz" secondAttribute="trailing" id="Hvc-XB-Epn"/>
-                <constraint firstItem="BMH-oL-wgz" firstAttribute="top" secondItem="1" secondAttribute="top" id="idN-vE-8ea"/>
-                <constraint firstItem="BMH-oL-wgz" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="kLy-bi-1XC"/>
+                <constraint firstItem="BMH-oL-wgz" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="Gxv-jA-pGw"/>
+                <constraint firstAttribute="bottom" secondItem="BMH-oL-wgz" secondAttribute="bottom" id="PMD-Dq-mlf"/>
+                <constraint firstItem="BMH-oL-wgz" firstAttribute="top" secondItem="1" secondAttribute="top" id="eG2-CR-CFo"/>
+                <constraint firstAttribute="trailing" secondItem="BMH-oL-wgz" secondAttribute="trailing" id="kiM-gw-nbg"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

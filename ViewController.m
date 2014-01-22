@@ -14,7 +14,13 @@
 @interface ViewController () {
     AppDelegate *appDelegate;
     NSMutableDictionary *fontDictonary;
-    NSUInteger totalFonts;
+    NSUInteger totalFonts, totalFilteredFonts;
+
+    UISearchBar *fontSearchBar;
+    NSMutableDictionary *filteredDictonary;
+    
+    BOOL keyboardVisible, iSFiltered;
+
 }
 
 @end
@@ -42,25 +48,58 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    
+    // register for keyboard notifications
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+    
+	keyboardVisible = iSFiltered = NO;
+    
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     appDelegate     = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    fontDictonary = [[NSMutableDictionary alloc] init];
+    fontDictonary       = [[NSMutableDictionary alloc] init];
+    filteredDictonary   = [[NSMutableDictionary alloc] init];
+
     [self setupFonts];
-    [self setupHeader];
-    [self setupFooter];
+    
+    fontSearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    fontSearchBar.delegate          = self;
+    fontSearchBar.placeholder       = @"Search Fonts";
+    fontSearchBar.showsCancelButton = NO;
+    self.tblView.tableHeaderView = fontSearchBar;
+
     
 }
 
--(void)viewWillAppear:(BOOL)animated {
+- (void)viewWillDisappear:(BOOL)animated {
+
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillShowNotification
+                                                  object:nil];
     
-    if ([_tblView indexPathForSelectedRow]) {
-        [_tblView deselectRowAtIndexPath:[_tblView indexPathForSelectedRow] animated:YES];
-    }
-    [_tblView reloadData];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillHideNotification
+                                                  object:nil];
     
 }
+
+
 
 
 - (void)didReceiveMemoryWarning {
@@ -81,65 +120,52 @@
     }
 }
 
-#pragma mark - Table header/Footer Setup
-- (void)setupHeader {
-  
-    CGRect footerRect = CGRectMake(0, 0, 320, 30);
-    UIView *wrapperView = [[UIView alloc] initWithFrame:footerRect];
-    
-    UILabel *tableFooter = [[UILabel alloc] initWithFrame:footerRect];
-    tableFooter.textColor = [UIColor darkGrayColor];
-    tableFooter.numberOfLines = 0;
-    tableFooter.textAlignment = NSTextAlignmentCenter;
-    tableFooter.backgroundColor = [self.tblView backgroundColor];
-    tableFooter.opaque = YES;
-    tableFooter.font = [UIFont boldSystemFontOfSize:12];
-    tableFooter.text = [NSString stringWithFormat:@"Total Fonts = %d", totalFonts];
-    [wrapperView addSubview:tableFooter];
-    
-    self.tblView.tableHeaderView = wrapperView;
+#pragma mark - Table Footer Setup
 
-}
-
-- (void)setupFooter {
-    
-    CGRect footerRect = CGRectMake(0, 0, 320, 50);
-    UIView *wrapperView = [[UIView alloc] initWithFrame:footerRect];
-    
-    UILabel *tableFooter = [[UILabel alloc] initWithFrame:footerRect];
-    tableFooter.textColor = [UIColor darkGrayColor];
-    tableFooter.numberOfLines = 0;
-    tableFooter.textAlignment = NSTextAlignmentCenter;
-    tableFooter.backgroundColor = [self.tblView backgroundColor];
-    tableFooter.opaque = YES;
-    tableFooter.font = [UIFont boldSystemFontOfSize:12];
-    tableFooter.text = [NSString stringWithFormat:@"\n\nTotal Fonts = %d", totalFonts];
-    [wrapperView addSubview:tableFooter];
-    
-    self.tblView.tableFooterView = wrapperView;
-
-}
+//- (void)setupFooter {
+//    
+//    CGRect footerRect = CGRectMake(0, 0, 320, 50);
+//    UIView *wrapperView = [[UIView alloc] initWithFrame:footerRect];
+//    
+//    UILabel *tableFooter = [[UILabel alloc] initWithFrame:footerRect];
+//    tableFooter.textColor = [UIColor darkGrayColor];
+//    tableFooter.numberOfLines = 0;
+//    tableFooter.textAlignment = NSTextAlignmentCenter;
+//    tableFooter.backgroundColor = [self.tblView backgroundColor];
+//    tableFooter.opaque = YES;
+//    tableFooter.font = [UIFont boldSystemFontOfSize:12];
+//    tableFooter.text = [NSString stringWithFormat:@"\n\nTotal Fonts = %d", ([fontSearchBar isFirstResponder] ? totalFilteredFonts : totalFonts)];
+//    [wrapperView addSubview:tableFooter];
+//    
+//    self.tblView.tableFooterView = wrapperView;
+//
+//}
 
 #pragma mark - UITableView DataSource/Delegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    if (tableView == self.searchDisplayController.searchResultsTableView) {
-        return 1;
+    if (iSFiltered) {
+        return [[filteredDictonary allKeys] count];
     }else {
+
         return [[fontDictonary allKeys] count];
     }
     
+
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    if (tableView == self.searchDisplayController.searchResultsTableView) {
-        return 1;
+    NSArray *fontNames;
+    if (iSFiltered) {
+        
+        fontNames = [filteredDictonary objectForKey:[[[filteredDictonary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:section]];
+
     } else {
         
-        NSArray *fontNames = [fontDictonary objectForKey:[[[fontDictonary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:section]];
-        return [fontNames count];
+        fontNames = [fontDictonary objectForKey:[[[fontDictonary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:section]];
     }
+    return [fontNames count];
 
 }
 
@@ -152,18 +178,17 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
 
-    NSArray *fontNames = [fontDictonary objectForKey:[[[fontDictonary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:indexPath.section]];
+    NSArray *fontNames;
 
-    if (tableView == self.searchDisplayController.searchResultsTableView) {
-//        candy = [filteredCandyArray objectAtIndex:indexPath.row];
-        cell.textLabel.text = @"HI";//[fontNames objectAtIndex:indexPath.row];
-
+    if (iSFiltered) {
+        fontNames = [filteredDictonary objectForKey:[[[filteredDictonary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:indexPath.section]];
 
     } else {
-        cell.textLabel.text = [fontNames objectAtIndex:indexPath.row];
-        cell.textLabel.font = [UIFont fontWithName:[fontNames objectAtIndex:indexPath.row] size:12.00f];
+        fontNames = [fontDictonary objectForKey:[[[fontDictonary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:indexPath.section]];
     }
     
+    cell.textLabel.text = [fontNames objectAtIndex:indexPath.row];
+    cell.textLabel.font = [UIFont fontWithName:[fontNames objectAtIndex:indexPath.row] size:12.00f];
 
     cell.imageView.userInteractionEnabled = YES;
     
@@ -186,7 +211,13 @@
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return [[[fontDictonary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:section];
+    
+    if (iSFiltered) {
+        return [[[filteredDictonary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:section];
+    }else {
+        return [[[fontDictonary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:section];
+
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -202,32 +233,34 @@
 }
 
 
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    //1. Setup the CATransform3D structure
-    CATransform3D rotation;
-    rotation = CATransform3DMakeRotation( (90.0*M_PI)/180, 0.0, 0.7, 0.4);
-    rotation.m34 = 1.0/ -600;
-    
-    
-    //2. Define the initial state (Before the animation)
-    cell.layer.shadowColor = [[UIColor blackColor]CGColor];
-    cell.layer.shadowOffset = CGSizeMake(10, 10);
-    cell.alpha = 0;
-    
-    cell.layer.transform = rotation;
-    cell.layer.anchorPoint = CGPointMake(0, 0.5);
-    
-    
-    //3. Define the final state (After the animation) and commit the animation
-    [UIView beginAnimations:@"rotation" context:NULL];
-    [UIView setAnimationDuration:0.8];
-    cell.layer.transform = CATransform3DIdentity;
-    cell.alpha = 1;
-    cell.layer.shadowOffset = CGSizeMake(0, 0);
-    [UIView commitAnimations];
-    
-}
+//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+//    
+//    //1. Setup the CATransform3D structure
+//    CATransform3D rotation;
+//    rotation = CATransform3DMakeRotation( (90.0*M_PI)/180, 0.0, 0.7, 0.4);
+//    rotation.m34 = 1.0/ -600;
+//    
+//    
+//    //2. Define the initial state (Before the animation)
+//    cell.layer.shadowColor = [[UIColor blackColor]CGColor];
+//    cell.layer.shadowOffset = CGSizeMake(10, 10);
+//    cell.alpha = 0;
+//    
+//    cell.layer.transform = rotation;
+//    cell.layer.anchorPoint = CGPointMake(0, 0.5);
+//    
+//    
+//    //3. Define the final state (After the animation) and commit the animation
+//    [UIView beginAnimations:@"rotation" context:NULL];
+//    [UIView setAnimationDuration:0.8];
+//    cell.layer.transform = CATransform3DIdentity;
+//    cell.alpha = 1;
+//    cell.layer.shadowOffset = CGSizeMake(0, 0);
+//    [UIView commitAnimations];
+//    
+//}
+
+
 
 #pragma mark - GestureRecognizer
 
@@ -260,6 +293,128 @@
 
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
+    if (section == [tableView numberOfSections]-1) {
+        return [NSString stringWithFormat:@"\t\t\tTotal Fonts : %d", ([fontSearchBar isFirstResponder] ? totalFilteredFonts : totalFonts)];
+    }
+    
+    return nil;
+
+}
+
+#pragma mark - UISearchBarDelegate
+
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
+    iSFiltered = YES;
+    searchBar.showsCancelButton = YES;
+    searchBar.text = nil;
+    [filteredDictonary setDictionary:fontDictonary];
+    totalFilteredFonts = totalFonts;
+
+    [_tblView reloadData];
+    return YES;
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *) searchBar {
+
+    iSFiltered = NO;
+
+    searchBar.showsCancelButton = NO;
+    searchBar.text = nil;
+    [searchBar resignFirstResponder];
+    [_tblView reloadData];
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+//    searchBar.showsCancelButton = NO;
+//    searchBar.text = nil;
+    iSFiltered = YES;
+    [searchBar resignFirstResponder];
+
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+
+    // Reset Dictionary
+    [filteredDictonary removeAllObjects];
+    
+    if (searchText == nil || [searchText isEqualToString:@""]) {
+        [filteredDictonary setDictionary:fontDictonary];
+        totalFilteredFonts = totalFonts;
+        
+    }else {
+
+        totalFilteredFonts = 0;
+        for (NSString *key in [fontDictonary allKeys]) {
+            NSArray *fontsOfFamily = (NSArray*)[fontDictonary objectForKey:key];
+            
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF contains[cd] %@",searchText];
+            NSArray *array = [fontsOfFamily filteredArrayUsingPredicate:predicate];
+            totalFilteredFonts += [array count];
+            
+            if ([array count]>0) {
+                [filteredDictonary setObject:array forKey:key];
+            }
+            
+        }
+        
+    
+    }
+    
+    
+    
+    [_tblView reloadData];
+}
+
+#pragma mark - NSNotifications
+
+
+-(void)keyboardWillShow:(NSNotification *)notification{
+	
+    NSLog(@"Keyboard is shown.");
+
+	if (keyboardVisible) {
+		return;
+	}
+	
+    // Get the size of the keyboard from the userInfo dictionary.
+    NSDictionary *keyboardInfo = [notification userInfo];
+    CGSize keyboardSize = [[keyboardInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    float keyboardHeight = keyboardSize.height;
+
+    CGRect rect = _tblView.frame ;
+    rect.size.height -= (keyboardHeight - self.tabBarController.tabBar.frame.size.height);
+ 	_tblView.frame = rect;
+    
+    keyboardVisible = YES;
+    
+}
+
+-(void)keyboardWillHide:(NSNotification *)notification{
+    
+	if (!keyboardVisible) {
+		return;
+	}
+    
+    // Get the size of the keyboard from the userInfo dictionary.
+    NSDictionary *keyboardInfo = [notification userInfo];
+    CGSize keyboardSize = [[keyboardInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    float keyboardHeight = keyboardSize.height;
+
+    
+    [UIView animateWithDuration:.25 animations:^{
+        
+        CGRect rect = _tblView.frame ;
+        rect.size.height += (keyboardHeight - self.tabBarController.tabBar.frame.size.height);
+        _tblView.frame = rect;
+        
+    }];
+    
+	keyboardVisible = NO;
+	
+}
 
 
 

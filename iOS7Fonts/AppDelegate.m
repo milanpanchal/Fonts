@@ -38,8 +38,9 @@
 
     
     _tabBarController.viewControllers = @[navViewController,navFavViewController,navUnicodeViewController,navAboutViewController];
+#if !DEBUG
     _tabBarController.selectedViewController = navAboutViewController;
-
+#endif
     [self.window setRootViewController:_tabBarController];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
