@@ -47,4 +47,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)gotoUrl:(UIButton *)sender {
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@",sender.currentTitle]];
+    BOOL canOpenUrl = [[UIApplication sharedApplication] canOpenURL:url];
+    if (canOpenUrl) {
+        [[UIApplication sharedApplication] openURL:url];
+    }
+
+}
+
 @end
