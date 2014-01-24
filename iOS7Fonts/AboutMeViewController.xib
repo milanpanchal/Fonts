@@ -129,6 +129,9 @@
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="m02-L4-aEV">
                     <rect key="frame" x="122" y="369" width="166" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <accessibility key="accessibilityConfiguration">
+                        <accessibilityTraits key="traits" none="YES" button="YES" link="YES"/>
+                    </accessibility>
                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                     <state key="normal" title="www.mypoemswithsam.wordpress.com">
                         <color key="titleColor" red="0.21802165840000001" green="0.36515134030000002" blue="0.53154721469999999" alpha="1" colorSpace="calibratedRGB"/>

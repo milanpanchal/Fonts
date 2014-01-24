@@ -21,6 +21,7 @@
     
     BOOL keyboardVisible, iSFiltered;
 
+    UIBarButtonItem *searchBarButton;
 }
 
 @end
@@ -83,6 +84,8 @@
     fontSearchBar.placeholder       = @"Search Fonts";
     fontSearchBar.showsCancelButton = NO;
     self.tblView.tableHeaderView = fontSearchBar;
+    
+    [self addNavigationBarRightButton];
 
     
 }
@@ -118,6 +121,21 @@
         [fontDictonary setObject:fontNames forKey:fontFamilyName];
         totalFonts += [fontNames count];
     }
+}
+
+#pragma mark - Navigation Setup
+
+- (void)addNavigationBarRightButton {
+    
+    searchBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(searchBarClicked:)];
+    self.navigationItem.rightBarButtonItem = searchBarButton;
+    
+}
+- (void)searchBarClicked:(id)sender {
+    
+    [fontSearchBar becomeFirstResponder];
+    [self.tblView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
+    
 }
 
 #pragma mark - Table Footer Setup
