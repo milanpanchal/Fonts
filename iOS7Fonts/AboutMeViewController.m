@@ -8,8 +8,9 @@
 
 #import "AboutMeViewController.h"
 #import <QuartzCore/QuartzCore.h>
-#import "Constants.h"
 #import <AddressBook/AddressBook.h>
+#import "Constants.h"
+#import "Person.h"
 
 @interface AboutMeViewController () {
 
@@ -75,7 +76,10 @@
 
 }
 
-- (void)saveContactToAddressBook {
+- (IBAction)saveContactToAddressBook {
+    
+    Person *person = [[Person alloc] init];
+    
     CFErrorRef error = NULL;
 
     ABAddressBookRef iPhoneAddressBook;
@@ -97,16 +101,18 @@
     ABRecordRef newPerson = ABPersonCreate();
 
     // First Name - Last Name - Nickname - Company Name
-    ABRecordSetValue(newPerson, kABPersonFirstNameProperty, CFSTR("Milan"), &error);
-    ABRecordSetValue(newPerson, kABPersonLastNameProperty, CFSTR("Panchal"), &error);
-    ABRecordSetValue(newPerson, kABPersonNicknameProperty, CFSTR("SAM"), &error);
-    ABRecordSetValue(newPerson, kABPersonOrganizationProperty, CFSTR("Pantech"), &error);
+    ABRecordSetValue(newPerson, kABPersonFirstNameProperty, (__bridge CFTypeRef)(person.firstName), &error);
+    ABRecordSetValue(newPerson, kABPersonLastNameProperty, (__bridge CFTypeRef)(person.lastName), &error);
+    ABRecordSetValue(newPerson, kABPersonNicknameProperty, (__bridge CFTypeRef)(person.nickName), &error);
+    ABRecordSetValue(newPerson, kABPersonOrganizationProperty, (__bridge CFTypeRef)(person.organizationName), &error);
 
     
 
     //  Add Emial addresses
     ABMutableMultiValueRef multiEmail = ABMultiValueCreateMutable(kABMultiStringPropertyType);
-    ABMultiValueAddValueAndLabel(multiEmail, @"sam07it22@gmail.com", kABHomeLabel, NULL);
+    for (NSString *email in person.emailAddresses) {
+        ABMultiValueAddValueAndLabel(multiEmail, (__bridge CFTypeRef)(email), kABHomeLabel, NULL);
+    }
     ABRecordSetValue(newPerson, kABPersonEmailProperty, multiEmail, &error);
     CFRelease(multiEmail);
     
@@ -115,37 +121,39 @@
     ABMultiValueRef social = ABMultiValueCreateMutable(kABMultiDictionaryPropertyType);
     
     ABMultiValueAddValueAndLabel(social, (__bridge CFTypeRef)([NSDictionary dictionaryWithObjectsAndKeys:
+                                                               (NSString *)kABPersonInstantMessageServiceSkype, kABPersonInstantMessageServiceKey,
+                                                               person.skypeId, kABPersonInstantMessageUsernameKey,
+                                                               nil]), kABPersonInstantMessageServiceSkype, NULL); // For Skype
+
+    ABMultiValueAddValueAndLabel(social, (__bridge CFTypeRef)([NSDictionary dictionaryWithObjectsAndKeys:
                                                                (NSString *)kABPersonSocialProfileServiceTwitter, kABPersonSocialProfileServiceKey,
-                                                               @"milan_panchal24", kABPersonSocialProfileUsernameKey,
+                                                               person.twitterId, kABPersonSocialProfileUsernameKey,
                                                                nil]), kABPersonSocialProfileServiceTwitter, NULL); // For Twitter
     
     ABMultiValueAddValueAndLabel(social, (__bridge CFTypeRef)([NSDictionary dictionaryWithObjectsAndKeys:
                                                                (NSString *)kABPersonSocialProfileServiceFacebook, kABPersonSocialProfileServiceKey,
-                                                               @"https://www.fb.me/MilanPantech", kABPersonSocialProfileUsernameKey,
+                                                               person.facebookId, kABPersonSocialProfileUsernameKey,
                                                                nil]), kABPersonSocialProfileServiceFacebook, NULL); // For Facebook
     
     ABMultiValueAddValueAndLabel(social, (__bridge CFTypeRef)([NSDictionary dictionaryWithObjectsAndKeys:
                                                                (NSString *)kABPersonSocialProfileServiceLinkedIn, kABPersonSocialProfileServiceKey,
-                                                               @"/in/milanpanchal", kABPersonSocialProfileUsernameKey,
+                                                               person.linkedinId, kABPersonSocialProfileUsernameKey,
                                                                nil]), kABPersonSocialProfileServiceLinkedIn, NULL); // For LinkedIn
 
-    ABMultiValueAddValueAndLabel(social, (__bridge CFTypeRef)([NSDictionary dictionaryWithObjectsAndKeys:
-                                                               (NSString *)kABPersonInstantMessageServiceSkype, kABPersonInstantMessageServiceKey,
-                                                               @"milan_panchal24", kABPersonInstantMessageUsernameKey,
-                                                               nil]), kABPersonInstantMessageServiceSkype, NULL); // For Skype
 
     ABRecordSetValue(newPerson, kABPersonSocialProfileProperty, social, &error);
 
     
     // Add an image
-    UIImage *im = [UIImage imageNamed:@"sam.jpg"];
-    NSData *dataRef = UIImagePNGRepresentation(im);
+    NSData *dataRef = UIImagePNGRepresentation(person.displayPic);
     ABPersonSetImageData(newPerson, (__bridge CFDataRef)dataRef, &error);
 
     // URL
     ABMutableMultiValueRef urlMultiValue = ABMultiValueCreateMutable(kABStringPropertyType);
-    ABMultiValueAddValueAndLabel(urlMultiValue, @"http://www.techfuzionwithsam.wordpress.com", kABPersonHomePageLabel, NULL);
-    ABMultiValueAddValueAndLabel(urlMultiValue, @"http://www.mypoemswithsam.wordpress.com", kABPersonHomePageLabel, NULL);
+    for (NSString *blogUrl in person.blogUrls) {
+        ABMultiValueAddValueAndLabel(urlMultiValue, (__bridge CFTypeRef)(blogUrl), kABPersonHomePageLabel, NULL);
+    }
+    
     ABRecordSetValue(newPerson, kABPersonURLProperty, urlMultiValue, &error);
     CFRelease(urlMultiValue);
 

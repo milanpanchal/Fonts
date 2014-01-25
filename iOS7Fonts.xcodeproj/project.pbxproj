@@ -19,6 +19,7 @@
 		ED562B18188D5848004BAE11 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = ED562AF2188D5848004BAE11 /* Appirater.m */; };
 		ED562B19188D5848004BAE11 /* Appirater.podspec in Resources */ = {isa = PBXBuildFile; fileRef = ED562AF3188D5848004BAE11 /* Appirater.podspec */; };
 		ED562B1A188D5848004BAE11 /* AppiraterLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED562AF5188D5848004BAE11 /* AppiraterLocalizable.strings */; };
+		ED61D90718939C6500D9FB7C /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = ED61D90618939C6500D9FB7C /* Person.m */; };
 		ED701B261885231C005D7F6B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED701B251885231C005D7F6B /* Foundation.framework */; };
 		ED701B281885231C005D7F6B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED701B271885231C005D7F6B /* CoreGraphics.framework */; };
 		ED701B2C1885231C005D7F6B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED701B2B1885231C005D7F6B /* CoreData.framework */; };
@@ -107,6 +108,8 @@
 		ED562B14188D5848004BAE11 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/AppiraterLocalizable.strings; sourceTree = "<group>"; };
 		ED562B15188D5848004BAE11 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/AppiraterLocalizable.strings"; sourceTree = "<group>"; };
 		ED562B16188D5848004BAE11 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/AppiraterLocalizable.strings"; sourceTree = "<group>"; };
+		ED61D90518939C6500D9FB7C /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		ED61D90618939C6500D9FB7C /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		ED701B221885231C005D7F6B /* iOS7Fonts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS7Fonts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED701B251885231C005D7F6B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		ED701B271885231C005D7F6B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -181,6 +184,8 @@
 				ED562ADC188D3D67004BAE11 /* AboutMeViewController.h */,
 				ED562ADD188D3D67004BAE11 /* AboutMeViewController.m */,
 				ED562ADE188D3D67004BAE11 /* AboutMeViewController.xib */,
+				ED61D90518939C6500D9FB7C /* Person.h */,
+				ED61D90618939C6500D9FB7C /* Person.m */,
 			);
 			name = AboutMe;
 			sourceTree = "<group>";
@@ -480,6 +485,7 @@
 				ED701B6218853D3F005D7F6B /* FontDetailViewController.m in Sources */,
 				ED701B341885231C005D7F6B /* main.m in Sources */,
 				EDA82615188E962000A2455E /* CustomUnicodeCell.m in Sources */,
+				ED61D90718939C6500D9FB7C /* Person.m in Sources */,
 				ED562ADF188D3D67004BAE11 /* AboutMeViewController.m in Sources */,
 				EDA8260E188E71DA00A2455E /* UnicodeViewController.m in Sources */,
 				ED701B5D188523AE005D7F6B /* ViewController.m in Sources */,
