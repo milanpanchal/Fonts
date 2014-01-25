@@ -8,6 +8,7 @@
 
 #import "FavouriteViewController.h"
 #import "AppDelegate.h"
+#import "Constants.h"
 
 @interface FavouriteViewController () {
 
@@ -46,6 +47,9 @@
     appDelegate     = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [self addnavigationBarRightButton];
 
+    [self.tblView setBackgroundColor:[UIColor clearColor]];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:IMG_BG]]];
+
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -80,6 +84,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
         cell.accessoryType = UITableViewCellAccessoryNone;
+        cell.backgroundColor = [UIColor clearColor];
     }
     
     cell.textLabel.text = [favouriteFonts objectAtIndex:indexPath.row];

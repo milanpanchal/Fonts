@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "FontDetailViewController.h"
 #import "AppDelegate.h"
-
+#import "Constants.h"
 
 @interface ViewController () {
     AppDelegate *appDelegate;
@@ -86,7 +86,9 @@
     self.tblView.tableHeaderView = fontSearchBar;
     
     [self addNavigationBarRightButton];
-
+    
+    [self.tblView setBackgroundColor:[UIColor clearColor]];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:IMG_BG]]];
     
 }
 
@@ -194,6 +196,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.backgroundColor = [UIColor clearColor];
     }
 
     NSArray *fontNames;
@@ -248,6 +251,13 @@
     fontDetailVC.fontFamilyNameString   = [[[fontDictonary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:indexPath.section];
     fontDetailVC.fontNameString         = [[cell textLabel] text];
 
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)activeScrollView {
+    //logic here
+    if ([fontSearchBar isFirstResponder]) {
+        [fontSearchBar resignFirstResponder];
+    }
 }
 
 
@@ -313,7 +323,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
     if (section == [tableView numberOfSections]-1) {
-        return [NSString stringWithFormat:@"\t\t\tTotal Fonts : %d", ([fontSearchBar isFirstResponder] ? totalFilteredFonts : totalFonts)];
+        return [NSString stringWithFormat:@"\t\t\tTotal Fonts : %lu", ([fontSearchBar isFirstResponder] ? (unsigned long)totalFilteredFonts :  (unsigned long)totalFonts)];
     }
     
     return nil;

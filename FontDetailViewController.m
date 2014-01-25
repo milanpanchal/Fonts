@@ -8,6 +8,7 @@
 
 #import "FontDetailViewController.h"
 #import "AppDelegate.h"
+#import "Constants.h"
 
 @interface FontDetailViewController () {
 
@@ -51,7 +52,7 @@
     fontFamilyNameLabel.adjustsFontSizeToFitWidth = YES;
     fontFamilyNameLabel.minimumScaleFactor = 10.0/[UIFont labelFontSize];
 
-    NSDictionary *underlineAttribute = @{NSUnderlineStyleAttributeName: @(NSUnderlineStyleDouble), NSUnderlineColorAttributeName:[UIColor whiteColor]};
+    NSDictionary *underlineAttribute = @{NSUnderlineStyleAttributeName: @(NSUnderlineStyleDouble), NSUnderlineColorAttributeName:[UIColor blackColor]};
 
     fontFamilyNameLabel.attributedText = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"Font Family : %@", _fontFamilyNameString]
                                                                          attributes:underlineAttribute];
@@ -71,6 +72,9 @@
 
     
     [self addnavigationBarRightButton];
+    
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:IMG_BG]]];
+
 }
 
 -(void)viewWillAppear:(BOOL)animated {

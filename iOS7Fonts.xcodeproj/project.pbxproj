@@ -19,8 +19,6 @@
 		ED562B18188D5848004BAE11 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = ED562AF2188D5848004BAE11 /* Appirater.m */; };
 		ED562B19188D5848004BAE11 /* Appirater.podspec in Resources */ = {isa = PBXBuildFile; fileRef = ED562AF3188D5848004BAE11 /* Appirater.podspec */; };
 		ED562B1A188D5848004BAE11 /* AppiraterLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED562AF5188D5848004BAE11 /* AppiraterLocalizable.strings */; };
-		ED562B1B188D5848004BAE11 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = ED562AF8188D5848004BAE11 /* CHANGELOG.md */; };
-		ED562B1C188D5848004BAE11 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = ED562B0D188D5848004BAE11 /* README.md */; };
 		ED701B261885231C005D7F6B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED701B251885231C005D7F6B /* Foundation.framework */; };
 		ED701B281885231C005D7F6B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED701B271885231C005D7F6B /* CoreGraphics.framework */; };
 		ED701B2C1885231C005D7F6B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED701B2B1885231C005D7F6B /* CoreData.framework */; };
@@ -39,6 +37,8 @@
 		ED701B5E188523AE005D7F6B /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED701B5C188523AE005D7F6B /* ViewController.xib */; };
 		ED701B6218853D3F005D7F6B /* FontDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED701B6018853D3F005D7F6B /* FontDetailViewController.m */; };
 		ED701B6318853D3F005D7F6B /* FontDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED701B6118853D3F005D7F6B /* FontDetailViewController.xib */; };
+		ED8D9A3418927BCF003EED74 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED8D9A3318927BCF003EED74 /* background.jpg */; };
+		ED8D9A3618928E3E003EED74 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED8D9A3518928E3E003EED74 /* AddressBook.framework */; };
 		EDA8260E188E71DA00A2455E /* UnicodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA8260C188E71DA00A2455E /* UnicodeViewController.m */; };
 		EDA8260F188E71DA00A2455E /* UnicodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDA8260D188E71DA00A2455E /* UnicodeViewController.xib */; };
 		EDA82612188E748A00A2455E /* Unicode.png in Resources */ = {isa = PBXBuildFile; fileRef = EDA82611188E748A00A2455E /* Unicode.png */; };
@@ -131,6 +131,8 @@
 		ED701B5F18853D3F005D7F6B /* FontDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FontDetailViewController.h; path = ../FontDetailViewController.h; sourceTree = "<group>"; };
 		ED701B6018853D3F005D7F6B /* FontDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FontDetailViewController.m; path = ../FontDetailViewController.m; sourceTree = "<group>"; };
 		ED701B6118853D3F005D7F6B /* FontDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FontDetailViewController.xib; path = ../FontDetailViewController.xib; sourceTree = "<group>"; };
+		ED8D9A3318927BCF003EED74 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
+		ED8D9A3518928E3E003EED74 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		EDA8260B188E71DA00A2455E /* UnicodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnicodeViewController.h; sourceTree = "<group>"; };
 		EDA8260C188E71DA00A2455E /* UnicodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnicodeViewController.m; sourceTree = "<group>"; };
 		EDA8260D188E71DA00A2455E /* UnicodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnicodeViewController.xib; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED8D9A3618928E3E003EED74 /* AddressBook.framework in Frameworks */,
 				ED562ADA188D3CD4004BAE11 /* UIKit.framework in Frameworks */,
 				ED701B261885231C005D7F6B /* Foundation.framework in Frameworks */,
 				ED701B281885231C005D7F6B /* CoreGraphics.framework in Frameworks */,
@@ -185,6 +188,7 @@
 		ED562AE2188D3EDB004BAE11 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				ED8D9A3318927BCF003EED74 /* background.jpg */,
 				EDA82611188E748A00A2455E /* Unicode.png */,
 				ED562AED188D44DF004BAE11 /* sam.jpg */,
 				EDA82618188EA3D200A2455E /* sam@2x.jpg */,
@@ -234,6 +238,7 @@
 		ED701B241885231C005D7F6B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ED8D9A3518928E3E003EED74 /* AddressBook.framework */,
 				ED701B251885231C005D7F6B /* Foundation.framework */,
 				ED701B271885231C005D7F6B /* CoreGraphics.framework */,
 				ED701B291885231C005D7F6B /* UIKit.framework */,
@@ -433,7 +438,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED562B1A188D5848004BAE11 /* AppiraterLocalizable.strings in Resources */,
-				ED562B1B188D5848004BAE11 /* CHANGELOG.md in Resources */,
 				EDA82617188E963100A2455E /* CustomUnicodeCell.xib in Resources */,
 				ED562AEA188D3F0D004BAE11 /* AboutUs@2x.png in Resources */,
 				EDA82619188EA3D300A2455E /* sam@2x.jpg in Resources */,
@@ -441,7 +445,7 @@
 				ED562AE8188D3EDB004BAE11 /* favorite_star_filled_30@2x.png in Resources */,
 				ED701B5E188523AE005D7F6B /* ViewController.xib in Resources */,
 				EDA8260F188E71DA00A2455E /* UnicodeViewController.xib in Resources */,
-				ED562B1C188D5848004BAE11 /* README.md in Resources */,
+				ED8D9A3418927BCF003EED74 /* background.jpg in Resources */,
 				ED562B17188D5848004BAE11 /* .gitignore in Resources */,
 				ED562B19188D5848004BAE11 /* Appirater.podspec in Resources */,
 				ED562AEE188D44DF004BAE11 /* sam.jpg in Resources */,

@@ -9,6 +9,7 @@
 #import "UnicodeViewController.h"
 #import "CustomUnicodeCell.h"
 #import <QuartzCore/QuartzCore.h>
+#import "Constants.h"
 
 #define kMaxUnicodeInRow    7
 #define kBorderWidth        2.0f
@@ -50,6 +51,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self.tableView setBackgroundColor:[UIColor clearColor]];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:IMG_BG]]];
+
     unicodes = [[NSMutableArray alloc] init];
     hexArray = @[@"0",@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"A",@"B",@"C",@"D",@"E",@"F"];
     for (NSString *string1 in hexArray) {
@@ -95,6 +99,7 @@
         cell                = [nib objectAtIndex:0];
         cell.accessoryType  = UITableViewCellAccessoryNone;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.backgroundColor= [UIColor clearColor];
         
     }
 

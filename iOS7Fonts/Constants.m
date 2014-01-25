@@ -14,4 +14,6 @@ NSString * const SYMBOL_UNCHECKED   = @"\u2B1C";
 NSString * const SYMBOL_CHECKED     = @"\u2705";
 NSString * const SYMBOL_PIN         = @"\U0001F4CC";
 
+NSString * const IMG_BG             = @"background.jpg";
+
 @end
