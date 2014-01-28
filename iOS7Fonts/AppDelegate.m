@@ -15,8 +15,7 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
@@ -33,11 +32,14 @@
     UINavigationController *navUnicodeViewController = [[UINavigationController alloc] initWithRootViewController:_unicodeViewController];
     
 
+    _featureViewController = [[FeatureViewController alloc] initWithNibName:@"FeatureViewController" bundle:nil];
+    UINavigationController *navFeatureViewController = [[UINavigationController alloc] initWithRootViewController:_featureViewController];
+
     _aboutViewController = [[AboutMeViewController alloc] initWithNibName:@"AboutMeViewController" bundle:nil];
     UINavigationController *navAboutViewController = [[UINavigationController alloc] initWithRootViewController:_aboutViewController];
 
     
-    _tabBarController.viewControllers = @[navViewController,navFavViewController,navUnicodeViewController,navAboutViewController];
+    _tabBarController.viewControllers = @[navViewController,navFavViewController,navUnicodeViewController,navFeatureViewController,navAboutViewController];
 #if !DEBUG
     _tabBarController.selectedViewController = navAboutViewController;
 #endif

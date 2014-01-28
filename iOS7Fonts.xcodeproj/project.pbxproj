@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED08F28818963B7800389DFC /* FeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED08F28618963B7800389DFC /* FeatureViewController.m */; };
+		ED08F28918963B7800389DFC /* FeatureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED08F28718963B7800389DFC /* FeatureViewController.xib */; };
+		ED08F28C1896426100389DFC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED08F28B1896426100389DFC /* AVFoundation.framework */; };
+		ED08F2901896428200389DFC /* BarcodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED08F28E1896428200389DFC /* BarcodeViewController.m */; };
+		ED08F2911896428200389DFC /* BarcodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED08F28F1896428200389DFC /* BarcodeViewController.xib */; };
+		ED11814D18969A0F00FA39DF /* Barcode.m in Sources */ = {isa = PBXBuildFile; fileRef = ED11814C18969A0F00FA39DF /* Barcode.m */; };
+		ED197DC718978D2B005B393D /* Feature@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED197DC618978D2B005B393D /* Feature@2x.png */; };
 		ED562ADA188D3CD4004BAE11 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED701B291885231C005D7F6B /* UIKit.framework */; };
 		ED562ADF188D3D67004BAE11 /* AboutMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED562ADD188D3D67004BAE11 /* AboutMeViewController.m */; };
 		ED562AE0188D3D67004BAE11 /* AboutMeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED562ADE188D3D67004BAE11 /* AboutMeViewController.xib */; };
@@ -62,6 +69,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		ED08F28518963B7800389DFC /* FeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeatureViewController.h; sourceTree = "<group>"; };
+		ED08F28618963B7800389DFC /* FeatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeatureViewController.m; sourceTree = "<group>"; };
+		ED08F28718963B7800389DFC /* FeatureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeatureViewController.xib; sourceTree = "<group>"; };
+		ED08F28B1896426100389DFC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		ED08F28D1896428200389DFC /* BarcodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarcodeViewController.h; sourceTree = "<group>"; };
+		ED08F28E1896428200389DFC /* BarcodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarcodeViewController.m; sourceTree = "<group>"; };
+		ED08F28F1896428200389DFC /* BarcodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BarcodeViewController.xib; sourceTree = "<group>"; };
+		ED11814B18969A0F00FA39DF /* Barcode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Barcode.h; sourceTree = "<group>"; };
+		ED11814C18969A0F00FA39DF /* Barcode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Barcode.m; sourceTree = "<group>"; };
+		ED197DC618978D2B005B393D /* Feature@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Feature@2x.png"; sourceTree = "<group>"; };
 		ED562ADC188D3D67004BAE11 /* AboutMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutMeViewController.h; sourceTree = "<group>"; };
 		ED562ADD188D3D67004BAE11 /* AboutMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutMeViewController.m; sourceTree = "<group>"; };
 		ED562ADE188D3D67004BAE11 /* AboutMeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutMeViewController.xib; sourceTree = "<group>"; };
@@ -156,6 +173,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED08F28C1896426100389DFC /* AVFoundation.framework in Frameworks */,
 				ED8D9A3618928E3E003EED74 /* AddressBook.framework in Frameworks */,
 				ED562ADA188D3CD4004BAE11 /* UIKit.framework in Frameworks */,
 				ED701B261885231C005D7F6B /* Foundation.framework in Frameworks */,
@@ -178,6 +196,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ED08F28A18963B8A00389DFC /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				ED08F28518963B7800389DFC /* FeatureViewController.h */,
+				ED08F28618963B7800389DFC /* FeatureViewController.m */,
+				ED08F28718963B7800389DFC /* FeatureViewController.xib */,
+				ED08F28D1896428200389DFC /* BarcodeViewController.h */,
+				ED08F28E1896428200389DFC /* BarcodeViewController.m */,
+				ED08F28F1896428200389DFC /* BarcodeViewController.xib */,
+				ED11814B18969A0F00FA39DF /* Barcode.h */,
+				ED11814C18969A0F00FA39DF /* Barcode.m */,
+			);
+			name = Feature;
+			sourceTree = "<group>";
+		};
+		ED197DC818978D3E005B393D /* Tabbar Icons */ = {
+			isa = PBXGroup;
+			children = (
+				EDA82611188E748A00A2455E /* Unicode.png */,
+				ED562AE9188D3F0D004BAE11 /* AboutUs@2x.png */,
+				ED197DC618978D2B005B393D /* Feature@2x.png */,
+				ED562AE3188D3EDB004BAE11 /* all_30@2x.png */,
+				ED562AE4188D3EDB004BAE11 /* favorite_star_30@2x.png */,
+			);
+			name = "Tabbar Icons";
+			sourceTree = "<group>";
+		};
 		ED562AE1188D3D7D004BAE11 /* AboutMe */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,13 +239,10 @@
 			isa = PBXGroup;
 			children = (
 				ED8D9A3318927BCF003EED74 /* background.jpg */,
-				EDA82611188E748A00A2455E /* Unicode.png */,
 				ED562AED188D44DF004BAE11 /* sam.jpg */,
 				EDA82618188EA3D200A2455E /* sam@2x.jpg */,
-				ED562AE9188D3F0D004BAE11 /* AboutUs@2x.png */,
-				ED562AE3188D3EDB004BAE11 /* all_30@2x.png */,
-				ED562AE4188D3EDB004BAE11 /* favorite_star_30@2x.png */,
 				ED562AE5188D3EDB004BAE11 /* favorite_star_filled_30@2x.png */,
+				ED197DC818978D3E005B393D /* Tabbar Icons */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -243,6 +285,7 @@
 		ED701B241885231C005D7F6B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ED08F28B1896426100389DFC /* AVFoundation.framework */,
 				ED8D9A3518928E3E003EED74 /* AddressBook.framework */,
 				ED701B251885231C005D7F6B /* Foundation.framework */,
 				ED701B271885231C005D7F6B /* CoreGraphics.framework */,
@@ -264,6 +307,7 @@
 				EDD0E4C01889358300C2CD20 /* Favourite */,
 				EDA82610188E71DD00A2455E /* Unicodes */,
 				ED562AE1188D3D7D004BAE11 /* AboutMe */,
+				ED08F28A18963B8A00389DFC /* Feature */,
 				ED701B3C1885231C005D7F6B /* Images.xcassets */,
 				ED701B391885231C005D7F6B /* iOS7Fonts.xcdatamodeld */,
 				ED701B2E1885231C005D7F6B /* Supporting Files */,
@@ -384,6 +428,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = Pantech;
 				TargetAttributes = {
+					ED701B211885231C005D7F6B = {
+						DevelopmentTeam = WMAW7GDA3U;
+					};
 					ED701B411885231C005D7F6B = {
 						TestTargetID = ED701B211885231C005D7F6B;
 					};
@@ -447,6 +494,8 @@
 				ED562AEA188D3F0D004BAE11 /* AboutUs@2x.png in Resources */,
 				EDA82619188EA3D300A2455E /* sam@2x.jpg in Resources */,
 				ED701B321885231C005D7F6B /* InfoPlist.strings in Resources */,
+				ED197DC718978D2B005B393D /* Feature@2x.png in Resources */,
+				ED08F28918963B7800389DFC /* FeatureViewController.xib in Resources */,
 				ED562AE8188D3EDB004BAE11 /* favorite_star_filled_30@2x.png in Resources */,
 				ED701B5E188523AE005D7F6B /* ViewController.xib in Resources */,
 				EDA8260F188E71DA00A2455E /* UnicodeViewController.xib in Resources */,
@@ -454,6 +503,7 @@
 				ED562B17188D5848004BAE11 /* .gitignore in Resources */,
 				ED562B19188D5848004BAE11 /* Appirater.podspec in Resources */,
 				ED562AEE188D44DF004BAE11 /* sam.jpg in Resources */,
+				ED08F2911896428200389DFC /* BarcodeViewController.xib in Resources */,
 				ED562AE6188D3EDB004BAE11 /* all_30@2x.png in Resources */,
 				ED701B6318853D3F005D7F6B /* FontDetailViewController.xib in Resources */,
 				ED562AE0188D3D67004BAE11 /* AboutMeViewController.xib in Resources */,
@@ -482,12 +532,15 @@
 				EDA8261D188EAF6E00A2455E /* Constants.m in Sources */,
 				EDD0E4B518891B8A00C2CD20 /* FavouriteViewController.m in Sources */,
 				ED701B381885231C005D7F6B /* AppDelegate.m in Sources */,
+				ED08F2901896428200389DFC /* BarcodeViewController.m in Sources */,
 				ED701B6218853D3F005D7F6B /* FontDetailViewController.m in Sources */,
 				ED701B341885231C005D7F6B /* main.m in Sources */,
 				EDA82615188E962000A2455E /* CustomUnicodeCell.m in Sources */,
+				ED11814D18969A0F00FA39DF /* Barcode.m in Sources */,
 				ED61D90718939C6500D9FB7C /* Person.m in Sources */,
 				ED562ADF188D3D67004BAE11 /* AboutMeViewController.m in Sources */,
 				EDA8260E188E71DA00A2455E /* UnicodeViewController.m in Sources */,
+				ED08F28818963B7800389DFC /* FeatureViewController.m in Sources */,
 				ED701B5D188523AE005D7F6B /* ViewController.m in Sources */,
 				ED562B18188D5848004BAE11 /* Appirater.m in Sources */,
 				ED701B3B1885231C005D7F6B /* iOS7Fonts.xcdatamodeld in Sources */,
@@ -649,6 +702,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/milan.panchal/Milan_All_Stuff/Project_Workspace/iOS7Fonts/MoPubSDK/AdNetworkSupport/Millennial/SDK/SpeechKit,
@@ -664,6 +719,7 @@
 					/Users/milan.panchal/Milan_All_Stuff/Project_Workspace/iOS7Fonts/MoPubSDK/AdNetworkSupport/Millennial/SDK,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -673,6 +729,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/milan.panchal/Milan_All_Stuff/Project_Workspace/iOS7Fonts/MoPubSDK/AdNetworkSupport/Millennial/SDK/SpeechKit,
@@ -688,6 +746,7 @@
 					/Users/milan.panchal/Milan_All_Stuff/Project_Workspace/iOS7Fonts/MoPubSDK/AdNetworkSupport/Millennial/SDK,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

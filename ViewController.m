@@ -83,12 +83,15 @@
     fontSearchBar.delegate          = self;
     fontSearchBar.placeholder       = @"Search Fonts";
     fontSearchBar.showsCancelButton = NO;
+    fontSearchBar.autocapitalizationType = UITextAutocapitalizationTypeNone;
     self.tblView.tableHeaderView = fontSearchBar;
     
     [self addNavigationBarRightButton];
     
     [self.tblView setBackgroundColor:[UIColor clearColor]];
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:IMG_BG]]];
+    
+
     
 }
 
@@ -253,6 +256,15 @@
 
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
+    if (section == [tableView numberOfSections]-1) {
+        return [NSString stringWithFormat:@"\t\t\tTotal Fonts : %lu", ([fontSearchBar isFirstResponder] ? (unsigned long)totalFilteredFonts :  (unsigned long)totalFonts)];
+    }
+    
+    return nil;
+    
+}
+
 - (void)scrollViewWillBeginDragging:(UIScrollView *)activeScrollView {
     //logic here
     if ([fontSearchBar isFirstResponder]) {
@@ -321,14 +333,7 @@
 
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
-    if (section == [tableView numberOfSections]-1) {
-        return [NSString stringWithFormat:@"\t\t\tTotal Fonts : %lu", ([fontSearchBar isFirstResponder] ? (unsigned long)totalFilteredFonts :  (unsigned long)totalFonts)];
-    }
-    
-    return nil;
 
-}
 
 #pragma mark - UISearchBarDelegate
 

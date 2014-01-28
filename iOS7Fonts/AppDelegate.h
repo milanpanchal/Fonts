@@ -11,6 +11,8 @@
 #import "FavouriteViewController.h"
 #import "AboutMeViewController.h"
 #import "UnicodeViewController.h"
+#import "FeatureViewController.h"
+
 
 #define kFavourtiteFonts @"kFavouriteFonts"
 
@@ -22,6 +24,7 @@
 @property (strong, nonatomic) FavouriteViewController *favViewController;
 @property (strong, nonatomic) AboutMeViewController *aboutViewController;
 @property (strong, nonatomic) UnicodeViewController *unicodeViewController;
+@property (strong, nonatomic) FeatureViewController *featureViewController;
 
 @property (strong, nonatomic) UITabBarController *tabBarController ;
 
