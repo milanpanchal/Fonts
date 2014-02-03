@@ -10,5 +10,6 @@
 
 @interface AboutMeViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UIImageView *profilePic;
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end

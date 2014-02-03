@@ -20,7 +20,7 @@
     UIView *_previewView;
 
     BOOL _running;
-
+    CGRect highlightViewRect;
 }
 
 @end
@@ -49,21 +49,19 @@ Supported Barcodes: Total-11
     [super viewDidLoad];
 
 
-    _previewView = [[UIView alloc] initWithFrame:self.view.frame];
-//    _previewView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleBottomMargin;
-//    _previewView.layer.borderColor = [UIColor greenColor].CGColor;
-//    _previewView.layer.borderWidth = 3;
+    _previewView = [[UIView alloc] initWithFrame:CGRectZero];
+    _previewView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleBottomMargin;
+    _previewView.layer.borderColor = [UIColor greenColor].CGColor;
+    _previewView.layer.borderWidth = 3;
     [self.view addSubview:_previewView];
-
+    
     [self setupCaptureSession];
-    _previewLayer.frame = _previewView.bounds;
-    [_previewView.layer addSublayer:_previewLayer];
-    [self.view bringSubviewToFront:_previewView];
 
 
     // listen for going into the background and stop the session
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidEnterBackground:) name:UIApplicationDidEnterBackgroundNotification object:nil];
+
 
 }
 
@@ -96,6 +94,13 @@ Supported Barcodes: Total-11
     _videoDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     if (!_videoDevice) {
         NSLog(@"No video camera on this device!");
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"No Camera Found!"
+                                                          message:@"No video camera on this device!"
+                                                         delegate:nil
+                                                cancelButtonTitle:@"OK"
+                                                otherButtonTitles:nil];
+        
+        [message show];
         return;
     }
 
@@ -112,25 +117,36 @@ Supported Barcodes: Total-11
     
     _previewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:_captureSession];
     _previewLayer.videoGravity =  AVLayerVideoGravityResizeAspectFill;
+    _previewLayer.frame = self.view.bounds;
+//    [self.view.layer addSublayer:_previewLayer];
+    [self.view.layer insertSublayer:_previewLayer atIndex:0];
 
     
     // capture and process the metadata
     _metadataOutput = [[AVCaptureMetadataOutput alloc] init];
 //    [_metadataOutput setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
  
-     dispatch_queue_t metadataQueue = dispatch_queue_create("com.1337labz.featurebuild.metadata", 0);
+    
+     dispatch_queue_t metadataQueue = dispatch_queue_create("com.1337labz.featurebuild.metadata", DISPATCH_QUEUE_SERIAL);
      [_metadataOutput setMetadataObjectsDelegate:self queue:metadataQueue];
+    
 
     if ([_captureSession canAddOutput:_metadataOutput]) {
         [_captureSession addOutput:_metadataOutput];
     }
+    
+
 }
 
 - (void)startRunning {
     if (_running) return;
+
     [_captureSession startRunning];
     _metadataOutput.metadataObjectTypes = _metadataOutput.availableMetadataObjectTypes;
     _running = YES;
+    
+    [self.view bringSubviewToFront:_previewView];
+
 }
 - (void)stopRunning {
     if (!_running) return;
@@ -141,6 +157,7 @@ Supported Barcodes: Total-11
 #pragma mark - Delegate functions
 
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection {
+    NSLog(@"Method Called");
     
     NSArray *barCodeTypes = @[AVMetadataObjectTypeUPCECode, AVMetadataObjectTypeCode39Code, AVMetadataObjectTypeCode39Mod43Code,
                               AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeEAN8Code, AVMetadataObjectTypeCode93Code, AVMetadataObjectTypeCode128Code,
@@ -151,20 +168,24 @@ Supported Barcodes: Total-11
        
         if ([obj isKindOfClass:[AVMetadataMachineReadableCodeObject class]]) {
 
-             AVMetadataMachineReadableCodeObject *code = (AVMetadataMachineReadableCodeObject*)
-             [_previewLayer transformedMetadataObjectForMetadataObject:obj];
+             AVMetadataMachineReadableCodeObject *code = (AVMetadataMachineReadableCodeObject*) [_previewLayer transformedMetadataObjectForMetadataObject:obj];
              Barcode * barcode = [Barcode processMetadataObject:code];
 
              for(NSString * str in barCodeTypes) {
                  if([barcode.getBarcodeType isEqualToString:str]){
+                     highlightViewRect = code.bounds;
+                     
                      [self validBarcodeFound:barcode];
                      return;
                  }
              }
          }
 
-        
     }
+    _previewView.frame = highlightViewRect;
+    [_previewView setNeedsDisplay];
+
+    
 }
 
 - (void) validBarcodeFound:(Barcode *)barcode{

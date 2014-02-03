@@ -49,6 +49,7 @@
 
     
     [self addNavigationBarRightButton];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -97,92 +98,147 @@
         iPhoneAddressBook = ABAddressBookCreate();
     }
 
-    
-    ABRecordRef newPerson = ABPersonCreate();
-
-    // First Name - Last Name - Nickname - Company Name
-    ABRecordSetValue(newPerson, kABPersonFirstNameProperty, (__bridge CFTypeRef)(person.firstName), &error);
-    ABRecordSetValue(newPerson, kABPersonLastNameProperty, (__bridge CFTypeRef)(person.lastName), &error);
-    ABRecordSetValue(newPerson, kABPersonNicknameProperty, (__bridge CFTypeRef)(person.nickName), &error);
-    ABRecordSetValue(newPerson, kABPersonOrganizationProperty, (__bridge CFTypeRef)(person.organizationName), &error);
-
-    
-
-    //  Add Emial addresses
-    ABMutableMultiValueRef multiEmail = ABMultiValueCreateMutable(kABMultiStringPropertyType);
-    for (NSString *email in person.emailAddresses) {
-        ABMultiValueAddValueAndLabel(multiEmail, (__bridge CFTypeRef)(email), kABHomeLabel, NULL);
-    }
-    ABRecordSetValue(newPerson, kABPersonEmailProperty, multiEmail, &error);
-    CFRelease(multiEmail);
-    
-
-    //  Adding social and Skype
-    ABMultiValueRef social = ABMultiValueCreateMutable(kABMultiDictionaryPropertyType);
-    
-    ABMultiValueAddValueAndLabel(social, (__bridge CFTypeRef)([NSDictionary dictionaryWithObjectsAndKeys:
-                                                               (NSString *)kABPersonInstantMessageServiceSkype, kABPersonInstantMessageServiceKey,
-                                                               person.skypeId, kABPersonInstantMessageUsernameKey,
-                                                               nil]), kABPersonInstantMessageServiceSkype, NULL); // For Skype
-
-    ABMultiValueAddValueAndLabel(social, (__bridge CFTypeRef)([NSDictionary dictionaryWithObjectsAndKeys:
-                                                               (NSString *)kABPersonSocialProfileServiceTwitter, kABPersonSocialProfileServiceKey,
-                                                               person.twitterId, kABPersonSocialProfileUsernameKey,
-                                                               nil]), kABPersonSocialProfileServiceTwitter, NULL); // For Twitter
-    
-    ABMultiValueAddValueAndLabel(social, (__bridge CFTypeRef)([NSDictionary dictionaryWithObjectsAndKeys:
-                                                               (NSString *)kABPersonSocialProfileServiceFacebook, kABPersonSocialProfileServiceKey,
-                                                               person.facebookId, kABPersonSocialProfileUsernameKey,
-                                                               nil]), kABPersonSocialProfileServiceFacebook, NULL); // For Facebook
-    
-    ABMultiValueAddValueAndLabel(social, (__bridge CFTypeRef)([NSDictionary dictionaryWithObjectsAndKeys:
-                                                               (NSString *)kABPersonSocialProfileServiceLinkedIn, kABPersonSocialProfileServiceKey,
-                                                               person.linkedinId, kABPersonSocialProfileUsernameKey,
-                                                               nil]), kABPersonSocialProfileServiceLinkedIn, NULL); // For LinkedIn
-
-
-    ABRecordSetValue(newPerson, kABPersonSocialProfileProperty, social, &error);
-
-    
-    // Add an image
-    NSData *dataRef = UIImagePNGRepresentation(person.displayPic);
-    ABPersonSetImageData(newPerson, (__bridge CFDataRef)dataRef, &error);
-
-    // URL
-    ABMutableMultiValueRef urlMultiValue = ABMultiValueCreateMutable(kABStringPropertyType);
-    for (NSString *blogUrl in person.blogUrls) {
-        ABMultiValueAddValueAndLabel(urlMultiValue, (__bridge CFTypeRef)(blogUrl), kABPersonHomePageLabel, NULL);
-    }
-    
-    ABRecordSetValue(newPerson, kABPersonURLProperty, urlMultiValue, &error);
-    CFRelease(urlMultiValue);
-
-
-    ABAddressBookAddRecord(iPhoneAddressBook, newPerson, &error);
-    ABAddressBookSave(iPhoneAddressBook, &error);
-
-    if (error != NULL) {
+    if (![self doesPersonExistWithPerson:person inAddressBook:iPhoneAddressBook]) {
         
-		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-														message:@"Could not create unknown user"
-													   delegate:nil
-											  cancelButtonTitle:@"Cancel"
-											  otherButtonTitles:nil];
-		[alert show];
-	} else {
-		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Add To Contacts"
-														message:@"Milan was added to your contact successfully!"
-													   delegate:nil
-											  cancelButtonTitle:@"OK"
-											  otherButtonTitles:nil];
-		[alert show];
-	}
+        ABRecordRef newPerson = ABPersonCreate();
+        
+        // First Name - Last Name - Nickname - Company Name
+        ABRecordSetValue(newPerson, kABPersonFirstNameProperty, (__bridge CFTypeRef)(person.firstName), &error);
+        ABRecordSetValue(newPerson, kABPersonLastNameProperty, (__bridge CFTypeRef)(person.lastName), &error);
+        ABRecordSetValue(newPerson, kABPersonNicknameProperty, (__bridge CFTypeRef)(person.nickName), &error);
+        ABRecordSetValue(newPerson, kABPersonOrganizationProperty, (__bridge CFTypeRef)(person.organizationName), &error);
+        
+        
+        
+        //  Add Emial addresses
+        ABMutableMultiValueRef multiEmail = ABMultiValueCreateMutable(kABMultiStringPropertyType);
+        for (NSString *email in person.emailAddresses) {
+            ABMultiValueAddValueAndLabel(multiEmail, (__bridge CFTypeRef)(email), kABHomeLabel, NULL);
+        }
+        ABRecordSetValue(newPerson, kABPersonEmailProperty, multiEmail, &error);
+        CFRelease(multiEmail);
+        
+        
+        //  Adding social and Skype
+        ABMultiValueRef social = ABMultiValueCreateMutable(kABMultiDictionaryPropertyType);
+        
+        ABMultiValueAddValueAndLabel(social, (__bridge CFTypeRef)([NSDictionary dictionaryWithObjectsAndKeys:
+                                                                   (NSString *)kABPersonInstantMessageServiceSkype, kABPersonInstantMessageServiceKey,
+                                                                   person.skypeId, kABPersonInstantMessageUsernameKey,
+                                                                   nil]), kABPersonInstantMessageServiceSkype, NULL); // For Skype
+        
+        ABMultiValueAddValueAndLabel(social, (__bridge CFTypeRef)([NSDictionary dictionaryWithObjectsAndKeys:
+                                                                   (NSString *)kABPersonSocialProfileServiceTwitter, kABPersonSocialProfileServiceKey,
+                                                                   person.twitterId, kABPersonSocialProfileUsernameKey,
+                                                                   nil]), kABPersonSocialProfileServiceTwitter, NULL); // For Twitter
+        
+        ABMultiValueAddValueAndLabel(social, (__bridge CFTypeRef)([NSDictionary dictionaryWithObjectsAndKeys:
+                                                                   (NSString *)kABPersonSocialProfileServiceFacebook, kABPersonSocialProfileServiceKey,
+                                                                   person.facebookId, kABPersonSocialProfileUsernameKey,
+                                                                   nil]), kABPersonSocialProfileServiceFacebook, NULL); // For Facebook
+        
+        ABMultiValueAddValueAndLabel(social, (__bridge CFTypeRef)([NSDictionary dictionaryWithObjectsAndKeys:
+                                                                   (NSString *)kABPersonSocialProfileServiceLinkedIn, kABPersonSocialProfileServiceKey,
+                                                                   person.linkedinId, kABPersonSocialProfileUsernameKey,
+                                                                   nil]), kABPersonSocialProfileServiceLinkedIn, NULL); // For LinkedIn
+        
+        
+        ABRecordSetValue(newPerson, kABPersonSocialProfileProperty, social, &error);
+        
+        
+        // Add an image
+        NSData *dataRef = UIImagePNGRepresentation(person.displayPic);
+        ABPersonSetImageData(newPerson, (__bridge CFDataRef)dataRef, &error);
+        
+        // URL
+        ABMutableMultiValueRef urlMultiValue = ABMultiValueCreateMutable(kABStringPropertyType);
+        for (NSString *blogUrl in person.blogUrls) {
+            ABMultiValueAddValueAndLabel(urlMultiValue, (__bridge CFTypeRef)(blogUrl), kABPersonHomePageLabel, NULL);
+        }
+        
+        ABRecordSetValue(newPerson, kABPersonURLProperty, urlMultiValue, &error);
+        CFRelease(urlMultiValue);
+        
+        
+        ABAddressBookAddRecord(iPhoneAddressBook, newPerson, &error);
+        ABAddressBookSave(iPhoneAddressBook, &error);
+        
+        if (error != NULL) {
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                            message:@"Could not create unknown user"
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"Cancel"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        } else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Added Successfully!"
+                                                            message:[NSString stringWithFormat:@"%@ %@ was added to your contact successfully.",person.firstName,person.lastName]
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
+        
+        
+        CFRelease(newPerson);
+        CFRelease(iPhoneAddressBook);
 
+    }else {
     
-    CFRelease(newPerson);
-    CFRelease(iPhoneAddressBook);
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Already Exist!"
+                                                        message:[NSString stringWithFormat:@"%@ %@ was already exist in your address book.",person.firstName,person.lastName]
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
 
 }
+
+- (BOOL) doesPersonExistWithPerson:(Person *)personObj inAddressBook:(ABRecordRef)paramAddressBook {
+
+    
+    if (paramAddressBook == NULL){
+        NSLog(@"The address book is null.");
+        return NO;
+    }
+    
+    
+    NSArray *allPeople = (__bridge_transfer NSArray *) ABAddressBookCopyArrayOfAllPeople(paramAddressBook);
+
+    NSUInteger peopleCounter = 0;
+
+    for (peopleCounter = 0 ; peopleCounter < [allPeople count] ; peopleCounter++){
+      
+        ABRecordRef person = (__bridge ABRecordRef) [allPeople objectAtIndex:peopleCounter];
+
+        NSString *firstName = (__bridge_transfer NSString *) ABRecordCopyValue(person, kABPersonFirstNameProperty);
+
+        NSString *lastName  = (__bridge_transfer NSString *) ABRecordCopyValue(person, kABPersonLastNameProperty);
+
+        NSString *nickName  = (__bridge_transfer NSString *) ABRecordCopyValue(person, kABPersonNicknameProperty);
+
+        NSString *organizationName  = (__bridge_transfer NSString *) ABRecordCopyValue(person, kABPersonOrganizationProperty);
+        
+        
+        if ([personObj.firstName isEqualToString:firstName] &&
+            [personObj.lastName isEqualToString:lastName]  &&
+            [personObj.nickName isEqualToString:nickName] &&
+            [personObj.organizationName isEqualToString:organizationName]) {
+    
+            return YES;
+        }
+
+        
+    }
+    
+
+    
+    return NO;
+
+}
+
 
 
 @end

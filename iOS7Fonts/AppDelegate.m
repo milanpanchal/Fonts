@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "Appirater.h"
+#import <AddressBook/AddressBook.h>
 
 @implementation AppDelegate
 
@@ -18,6 +19,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    
+    [self askForAddressBookPermission];
     
     _tabBarController = [[UITabBarController alloc] init];
     
@@ -231,6 +235,45 @@
     
     [[NSUserDefaults standardUserDefaults] setObject:nil forKey:kFavourtiteFonts];
     [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+#pragma mark - AddressBook permission
+
+- (void)askForAddressBookPermission {
+    ABAddressBookRef addressBook;
+    
+    CFErrorRef error = NULL;
+    switch (ABAddressBookGetAuthorizationStatus()) {
+        
+        case kABAuthorizationStatusAuthorized:{
+        addressBook = ABAddressBookCreateWithOptions(NULL, &error); /* Do your work and once you are finished ... */
+        if (addressBook != NULL){
+            CFRelease(addressBook);
+        }
+        break;
+        
+        }
+        case kABAuthorizationStatusDenied:{
+            break;
+        }
+        case kABAuthorizationStatusNotDetermined:{
+            addressBook = ABAddressBookCreateWithOptions(NULL, &error);
+            ABAddressBookRequestAccessWithCompletion
+            (addressBook, ^(bool granted, CFErrorRef error) {
+                if (granted){
+                    NSLog(@"Access was granted");
+                } else {
+                    NSLog(@"Access was not granted");
+                }
+                if (addressBook != NULL){
+                    CFRelease(addressBook);
+                }
+            });
+            break; }
+        case kABAuthorizationStatusRestricted:{
+            break;
+        }
+    }
 }
 
 @end
