@@ -41,6 +41,8 @@ Supported Barcodes: Total-11
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
+        self.navigationItem.title = @"Barcode Scanning";
     }
     return self;
 }
@@ -230,7 +232,10 @@ Supported Barcodes: Total-11
 
 - (void)applicationWillEnterForeground:(NSNotification*)note {
     [self startRunning];
+
 }
+
+
 - (void)applicationDidEnterBackground:(NSNotification*)note {
     [self stopRunning];
 }

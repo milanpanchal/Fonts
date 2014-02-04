@@ -9,6 +9,7 @@
 #import "FeatureViewController.h"
 #import "Constants.h"
 #import "BarcodeViewController.h"
+#import "FilterViewController.h"
 
 @interface FeatureViewController () {
 
@@ -43,7 +44,7 @@
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:IMG_BG]]];
     [self.tblView setBackgroundColor:[UIColor clearColor]];
     
-    featureList = @[@"Barcode Scanning"];
+    featureList = @[@"Barcode Scanning",@"Image Filtering"];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -95,12 +96,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    BarcodeViewController *barCodeVC = [[BarcodeViewController alloc] initWithNibName:@"BarcodeViewController" bundle:nil];
-    [self.navigationController pushViewController:barCodeVC animated:YES];
-//
-//    fontDetailVC.fontFamilyNameString   = [[[fontDictonary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:indexPath.section];
-//    fontDetailVC.fontNameString         = [[cell textLabel] text];
-    
+    if (indexPath.row == 0) {
+        BarcodeViewController *barCodeVC = [[BarcodeViewController alloc] initWithNibName:@"BarcodeViewController" bundle:nil];
+        [self.navigationController pushViewController:barCodeVC animated:YES];
+        
+    }else if (indexPath.row == 1){
+        FilterViewController *filterVC = [[FilterViewController alloc] initWithNibName:NSStringFromClass([FilterViewController class]) bundle:nil];
+        [self.navigationController pushViewController:filterVC animated:YES];
+    }
 }
 
 

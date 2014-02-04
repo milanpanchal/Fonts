@@ -14,6 +14,11 @@
 		ED08F2911896428200389DFC /* BarcodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED08F28F1896428200389DFC /* BarcodeViewController.xib */; };
 		ED11814D18969A0F00FA39DF /* Barcode.m in Sources */ = {isa = PBXBuildFile; fileRef = ED11814C18969A0F00FA39DF /* Barcode.m */; };
 		ED197DC718978D2B005B393D /* Feature@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED197DC618978D2B005B393D /* Feature@2x.png */; };
+		ED2E1B9B18A0F95400A767F2 /* libGPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2E1B9618A0F90E00A767F2 /* libGPUImage.a */; };
+		ED2E1B9D18A0F97B00A767F2 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2E1B9C18A0F97B00A767F2 /* CoreMedia.framework */; };
+		ED2E1B9F18A0F98500A767F2 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2E1B9E18A0F98500A767F2 /* CoreVideo.framework */; };
+		ED2E1BA118A0F99000A767F2 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2E1BA018A0F99000A767F2 /* OpenGLES.framework */; };
+		ED2E1BA318A0F9A100A767F2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2E1BA218A0F9A100A767F2 /* QuartzCore.framework */; };
 		ED562ADA188D3CD4004BAE11 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED701B291885231C005D7F6B /* UIKit.framework */; };
 		ED562ADF188D3D67004BAE11 /* AboutMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED562ADD188D3D67004BAE11 /* AboutMeViewController.m */; };
 		ED562AE0188D3D67004BAE11 /* AboutMeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED562ADE188D3D67004BAE11 /* AboutMeViewController.xib */; };
@@ -53,11 +58,34 @@
 		EDBFFB1618A0D13E0042E205 /* UnicodeCollecViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDBFFB1518A0D13E0042E205 /* UnicodeCollecViewController.m */; };
 		EDBFFB1A18A0D1C40042E205 /* MyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EDBFFB1818A0D1C40042E205 /* MyCollectionViewCell.m */; };
 		EDBFFB1B18A0D1C40042E205 /* MyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDBFFB1918A0D1C40042E205 /* MyCollectionViewCell.xib */; };
+		EDBFFB2318A0F0620042E205 /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDBFFB2118A0F0620042E205 /* FilterViewController.m */; };
+		EDBFFB2418A0F0620042E205 /* FilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDBFFB2218A0F0620042E205 /* FilterViewController.xib */; };
 		EDD0E4B518891B8A00C2CD20 /* FavouriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD0E4B318891B8A00C2CD20 /* FavouriteViewController.m */; };
 		EDD0E4B618891B8A00C2CD20 /* FavouriteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDD0E4B418891B8A00C2CD20 /* FavouriteViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		ED2E1B9518A0F90E00A767F2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ED2E1B8F18A0F90E00A767F2 /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCF1A33414DDB1EC00852800;
+			remoteInfo = GPUImage;
+		};
+		ED2E1B9718A0F90E00A767F2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ED2E1B8F18A0F90E00A767F2 /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCF1A34414DDB1EC00852800;
+			remoteInfo = GPUImageTests;
+		};
+		ED2E1B9918A0F93C00A767F2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ED2E1B8F18A0F90E00A767F2 /* GPUImage.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BCF1A33314DDB1EC00852800;
+			remoteInfo = GPUImage;
+		};
 		ED701B481885231C005D7F6B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = ED701B1A1885231C005D7F6B /* Project object */;
@@ -78,6 +106,11 @@
 		ED11814B18969A0F00FA39DF /* Barcode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Barcode.h; sourceTree = "<group>"; };
 		ED11814C18969A0F00FA39DF /* Barcode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Barcode.m; sourceTree = "<group>"; };
 		ED197DC618978D2B005B393D /* Feature@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Feature@2x.png"; sourceTree = "<group>"; };
+		ED2E1B8F18A0F90E00A767F2 /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = Submodules/GPUImage/framework/GPUImage.xcodeproj; sourceTree = "<group>"; };
+		ED2E1B9C18A0F97B00A767F2 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		ED2E1B9E18A0F98500A767F2 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		ED2E1BA018A0F99000A767F2 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		ED2E1BA218A0F9A100A767F2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		ED562ADC188D3D67004BAE11 /* AboutMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutMeViewController.h; sourceTree = "<group>"; };
 		ED562ADD188D3D67004BAE11 /* AboutMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutMeViewController.m; sourceTree = "<group>"; };
 		ED562ADE188D3D67004BAE11 /* AboutMeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutMeViewController.xib; sourceTree = "<group>"; };
@@ -161,6 +194,9 @@
 		EDBFFB1718A0D1C40042E205 /* MyCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectionViewCell.h; sourceTree = "<group>"; };
 		EDBFFB1818A0D1C40042E205 /* MyCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectionViewCell.m; sourceTree = "<group>"; };
 		EDBFFB1918A0D1C40042E205 /* MyCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCollectionViewCell.xib; sourceTree = "<group>"; };
+		EDBFFB2018A0F0620042E205 /* FilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterViewController.h; sourceTree = "<group>"; };
+		EDBFFB2118A0F0620042E205 /* FilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterViewController.m; sourceTree = "<group>"; };
+		EDBFFB2218A0F0620042E205 /* FilterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterViewController.xib; sourceTree = "<group>"; };
 		EDD0E4B218891B8A00C2CD20 /* FavouriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouriteViewController.h; sourceTree = "<group>"; };
 		EDD0E4B318891B8A00C2CD20 /* FavouriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouriteViewController.m; sourceTree = "<group>"; };
 		EDD0E4B418891B8A00C2CD20 /* FavouriteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavouriteViewController.xib; sourceTree = "<group>"; };
@@ -171,6 +207,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED2E1BA318A0F9A100A767F2 /* QuartzCore.framework in Frameworks */,
+				ED2E1BA118A0F99000A767F2 /* OpenGLES.framework in Frameworks */,
+				ED2E1B9F18A0F98500A767F2 /* CoreVideo.framework in Frameworks */,
+				ED2E1B9D18A0F97B00A767F2 /* CoreMedia.framework in Frameworks */,
+				ED2E1B9B18A0F95400A767F2 /* libGPUImage.a in Frameworks */,
 				ED08F28C1896426100389DFC /* AVFoundation.framework in Frameworks */,
 				ED8D9A3618928E3E003EED74 /* AddressBook.framework in Frameworks */,
 				ED562ADA188D3CD4004BAE11 /* UIKit.framework in Frameworks */,
@@ -200,11 +241,8 @@
 				ED08F28518963B7800389DFC /* FeatureViewController.h */,
 				ED08F28618963B7800389DFC /* FeatureViewController.m */,
 				ED08F28718963B7800389DFC /* FeatureViewController.xib */,
-				ED08F28D1896428200389DFC /* BarcodeViewController.h */,
-				ED08F28E1896428200389DFC /* BarcodeViewController.m */,
-				ED08F28F1896428200389DFC /* BarcodeViewController.xib */,
-				ED11814B18969A0F00FA39DF /* Barcode.h */,
-				ED11814C18969A0F00FA39DF /* Barcode.m */,
+				EDBFFB1C18A0EB100042E205 /* Barcode */,
+				EDBFFB2518A0F0660042E205 /* Image Filtering */,
 			);
 			name = Feature;
 			sourceTree = "<group>";
@@ -219,6 +257,15 @@
 				ED562AE4188D3EDB004BAE11 /* favorite_star_30@2x.png */,
 			);
 			name = "Tabbar Icons";
+			sourceTree = "<group>";
+		};
+		ED2E1B9018A0F90E00A767F2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ED2E1B9618A0F90E00A767F2 /* libGPUImage.a */,
+				ED2E1B9818A0F90E00A767F2 /* GPUImageTests.octest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		ED562AE1188D3D7D004BAE11 /* AboutMe */ = {
@@ -263,6 +310,7 @@
 		ED701B191885231C005D7F6B = {
 			isa = PBXGroup;
 			children = (
+				ED2E1B8F18A0F90E00A767F2 /* GPUImage.xcodeproj */,
 				ED562AEF188D5848004BAE11 /* appirater-master */,
 				ED701B2D1885231C005D7F6B /* iOS7Fonts */,
 				ED701B4A1885231C005D7F6B /* iOS7FontsTests */,
@@ -283,6 +331,10 @@
 		ED701B241885231C005D7F6B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ED2E1BA218A0F9A100A767F2 /* QuartzCore.framework */,
+				ED2E1BA018A0F99000A767F2 /* OpenGLES.framework */,
+				ED2E1B9E18A0F98500A767F2 /* CoreVideo.framework */,
+				ED2E1B9C18A0F97B00A767F2 /* CoreMedia.framework */,
 				ED08F28B1896426100389DFC /* AVFoundation.framework */,
 				ED8D9A3518928E3E003EED74 /* AddressBook.framework */,
 				ED701B251885231C005D7F6B /* Foundation.framework */,
@@ -355,6 +407,28 @@
 			name = Unicodes;
 			sourceTree = "<group>";
 		};
+		EDBFFB1C18A0EB100042E205 /* Barcode */ = {
+			isa = PBXGroup;
+			children = (
+				ED08F28D1896428200389DFC /* BarcodeViewController.h */,
+				ED08F28E1896428200389DFC /* BarcodeViewController.m */,
+				ED08F28F1896428200389DFC /* BarcodeViewController.xib */,
+				ED11814B18969A0F00FA39DF /* Barcode.h */,
+				ED11814C18969A0F00FA39DF /* Barcode.m */,
+			);
+			name = Barcode;
+			sourceTree = "<group>";
+		};
+		EDBFFB2518A0F0660042E205 /* Image Filtering */ = {
+			isa = PBXGroup;
+			children = (
+				EDBFFB2018A0F0620042E205 /* FilterViewController.h */,
+				EDBFFB2118A0F0620042E205 /* FilterViewController.m */,
+				EDBFFB2218A0F0620042E205 /* FilterViewController.xib */,
+			);
+			name = "Image Filtering";
+			sourceTree = "<group>";
+		};
 		EDD0E4BF1889357700C2CD20 /* All Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -392,6 +466,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				ED2E1B9A18A0F93C00A767F2 /* PBXTargetDependency */,
 			);
 			name = iOS7Fonts;
 			productName = iOS7Fonts;
@@ -473,6 +548,12 @@
 			mainGroup = ED701B191885231C005D7F6B;
 			productRefGroup = ED701B231885231C005D7F6B /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = ED2E1B9018A0F90E00A767F2 /* Products */;
+					ProjectRef = ED2E1B8F18A0F90E00A767F2 /* GPUImage.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				ED701B211885231C005D7F6B /* iOS7Fonts */,
@@ -480,6 +561,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		ED2E1B9618A0F90E00A767F2 /* libGPUImage.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libGPUImage.a;
+			remoteRef = ED2E1B9518A0F90E00A767F2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		ED2E1B9818A0F90E00A767F2 /* GPUImageTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = GPUImageTests.octest;
+			remoteRef = ED2E1B9718A0F90E00A767F2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		ED701B201885231C005D7F6B /* Resources */ = {
@@ -492,6 +590,7 @@
 				ED701B321885231C005D7F6B /* InfoPlist.strings in Resources */,
 				ED197DC718978D2B005B393D /* Feature@2x.png in Resources */,
 				ED08F28918963B7800389DFC /* FeatureViewController.xib in Resources */,
+				EDBFFB2418A0F0620042E205 /* FilterViewController.xib in Resources */,
 				ED562AE8188D3EDB004BAE11 /* favorite_star_filled_30@2x.png in Resources */,
 				EDBFFB1B18A0D1C40042E205 /* MyCollectionViewCell.xib in Resources */,
 				ED701B5E188523AE005D7F6B /* ViewController.xib in Resources */,
@@ -531,6 +630,7 @@
 				ED701B381885231C005D7F6B /* AppDelegate.m in Sources */,
 				ED08F2901896428200389DFC /* BarcodeViewController.m in Sources */,
 				ED701B6218853D3F005D7F6B /* FontDetailViewController.m in Sources */,
+				EDBFFB2318A0F0620042E205 /* FilterViewController.m in Sources */,
 				ED701B341885231C005D7F6B /* main.m in Sources */,
 				ED11814D18969A0F00FA39DF /* Barcode.m in Sources */,
 				ED61D90718939C6500D9FB7C /* Person.m in Sources */,
@@ -554,6 +654,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		ED2E1B9A18A0F93C00A767F2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GPUImage;
+			targetProxy = ED2E1B9918A0F93C00A767F2 /* PBXContainerItemProxy */;
+		};
 		ED701B491885231C005D7F6B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = ED701B211885231C005D7F6B /* iOS7Fonts */;
@@ -707,6 +812,11 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iOS7Fonts/iOS7Fonts-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode5.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"Submodules/GPUImage/framework/**",
+				);
 				INFOPLIST_FILE = "iOS7Fonts/iOS7Fonts-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
@@ -734,6 +844,11 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iOS7Fonts/iOS7Fonts-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode5.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"Submodules/GPUImage/framework/**",
+				);
 				INFOPLIST_FILE = "iOS7Fonts/iOS7Fonts-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
