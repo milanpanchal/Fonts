@@ -32,9 +32,9 @@
     _favViewController = [[FavouriteViewController alloc] initWithNibName:@"FavouriteViewController" bundle:nil];
     UINavigationController *navFavViewController = [[UINavigationController alloc] initWithRootViewController:_favViewController];
 
-    _unicodeViewController = [[UnicodeViewController alloc] initWithNibName:@"UnicodeViewController" bundle:nil];
+    _unicodeViewController = [[UnicodeCollecViewController alloc] initWithCollectionViewLayout:[self flowLayout]];
     UINavigationController *navUnicodeViewController = [[UINavigationController alloc] initWithRootViewController:_unicodeViewController];
-    
+
 
     _featureViewController = [[FeatureViewController alloc] initWithNibName:@"FeatureViewController" bundle:nil];
     UINavigationController *navFeatureViewController = [[UINavigationController alloc] initWithRootViewController:_featureViewController];
@@ -274,6 +274,19 @@
             break;
         }
     }
+}
+
+#pragma mark - Collection view controller
+
+- (UICollectionViewFlowLayout *) flowLayout{ UICollectionViewFlowLayout *flowLayout =
+    [[UICollectionViewFlowLayout alloc] init];
+    flowLayout.minimumLineSpacing = 5.0f;
+    flowLayout.minimumInteritemSpacing = 5.0f;
+    flowLayout.itemSize = CGSizeMake(43.0f, 60.0f);
+    flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
+    flowLayout.sectionInset = UIEdgeInsetsMake(10.0f, 10.0f, 10.0f, 10.0f);
+    return flowLayout;
+    
 }
 
 @end
