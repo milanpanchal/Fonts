@@ -54,6 +54,7 @@
     [super viewWillAppear:animated];
     
     // register for keyboard notifications
+    [_tblView reloadData];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:)
@@ -251,7 +252,6 @@
     FontDetailViewController *fontDetailVC = [[FontDetailViewController alloc] initWithNibName:@"FontDetailViewController" bundle:nil];
     [self.navigationController pushViewController:fontDetailVC animated:YES];
     
-    fontDetailVC.fontFamilyNameString   = [[[fontDictonary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:indexPath.section];
     fontDetailVC.fontNameString         = [[cell textLabel] text];
 
 }

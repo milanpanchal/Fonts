@@ -37,13 +37,16 @@
     
     
     // Setup font lable
+    UIFont *font = [UIFont fontWithName:_fontNameString size:(int)_fontSlider.minimumValue];
+    
     fontNameLabel.text = _fontNameString;
-    fontNameLabel.font = [UIFont fontWithName:_fontNameString size:(int)_fontSlider.minimumValue];
+    fontNameLabel.font = font;
     fontNameLabel.backgroundColor = [UIColor whiteColor];
     fontNameLabel.textColor = [UIColor blackColor];
     fontNameLabel.numberOfLines = 0;
     fontNameLabel.layer.borderColor = [[UIColor colorWithWhite:0.3 alpha:1.0] CGColor];
     fontNameLabel.layer.borderWidth = 2.0f;
+
 
     // Setup font-family lable
     fontFamilyNameLabel.backgroundColor = [UIColor clearColor];
@@ -54,7 +57,7 @@
 
     NSDictionary *underlineAttribute = @{NSUnderlineStyleAttributeName: @(NSUnderlineStyleDouble), NSUnderlineColorAttributeName:[UIColor blackColor]};
 
-    fontFamilyNameLabel.attributedText = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"Font Family : %@", _fontFamilyNameString]
+    fontFamilyNameLabel.attributedText = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"Font Family : %@", [font familyName]]
                                                                          attributes:underlineAttribute];
 
 

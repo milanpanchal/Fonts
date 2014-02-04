@@ -9,6 +9,7 @@
 #import "FavouriteViewController.h"
 #import "AppDelegate.h"
 #import "Constants.h"
+#import "FontDetailViewController.h"
 
 @interface FavouriteViewController () {
 
@@ -83,8 +84,9 @@
     
     if (cell == nil) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-        cell.accessoryType = UITableViewCellAccessoryNone;
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.backgroundColor = [UIColor clearColor];
+
     }
     
     cell.textLabel.text = [favouriteFonts objectAtIndex:indexPath.row];
@@ -97,6 +99,15 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    FontDetailViewController *fontDetailVC = [[FontDetailViewController alloc] initWithNibName:@"FontDetailViewController" bundle:nil];
+    [self.navigationController pushViewController:fontDetailVC animated:YES];
+    
+//    fontDetailVC.fontFamilyNameString   = [[[fontDictonary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:indexPath.section];
+    fontDetailVC.fontNameString         = [[cell textLabel] text];
+
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {

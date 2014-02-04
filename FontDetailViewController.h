@@ -17,7 +17,6 @@
 
 }
 
-@property (strong, nonatomic) NSString *fontFamilyNameString;
 @property (strong, nonatomic) NSString *fontNameString;
 
 
