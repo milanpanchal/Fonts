@@ -1,14 +1,38 @@
+
 Fonts
 =====
 
-Display all available fonts on iPhone
+>Display all fonts supported by iPhone. You can favourite your fonts too!
+
+>There are also few more features that listed out below.
+
+----
+Features:
+----
 
 
-![ScreenShot](https://raw.github.com/milanpanchal/Fonts/master/Screenshots/iOS%20Simulator%20Screen%20shot%2022-Jan-2014%2011.47.09%20am.png)
+* Display all available fonts on iPhone
+* Favourites the fonts
+* List out all unicodes 
+* Copy Unicode using long press option
+* Barcode scanning
+* Image Filters
+----
+Screenshots
+----
+![ScreenShot](https://raw.github.com/milanpanchal/Fonts/master/Screenshots/All.png)
 
-![ScreenShot](https://raw.github.com/milanpanchal/Fonts/master/Screenshots/iOS%20Simulator%20Screen%20shot%2022-Jan-2014%2011.47.04%20am.png)
+----
+Reference:
+----
+Image filter was referenced from [here][2]
 
-![ScreenShot](https://raw.github.com/milanpanchal/Fonts/master/Screenshots/iOS%20Simulator%20Screen%20shot%2022-Jan-2014%2011.46.56%20am.png)
+----
+License
+----
+MIT
 
-![ScreenShot](https://raw.github.com/milanpanchal/Fonts/master/Screenshots/iOS%20Simulator%20Screen%20shot%2022-Jan-2014%2011.46.44%20am.png)
 
+**Free Software, Hell Yeah!**
+
+[2]:http://mobile.tutsplus.com/tutorials/iphone/applying-image-filters-with-gpuimage/
