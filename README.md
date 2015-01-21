@@ -6,9 +6,9 @@ Fonts
 
 >There are also few more features that listed out below.
 
-----
-Features:
-----
+
+##Features:
+
 
 
 * Display all available fonts on iPhone
@@ -17,20 +17,31 @@ Features:
 * Copy Unicode using long press option
 * Barcode scanning
 * Image Filters
-----
-Screenshots
-----
+
+
+##Screenshots:
+
 ![ScreenShot](https://raw.github.com/milanpanchal/Fonts/master/Screenshots/All.png)
 
-----
-Reference:
-----
+
+##Reference:
+
 Image filter was referenced from [here][2]
 
-----
-License
-----
-MIT
+
+##Contact:
+
+
+Follow me on 
+
+1. **Twitter** ([@milan_panchal24](https://twitter.com/milan_panchal24))
+
+2. **Github** ([/milanpanchal](https://github.com/milanpanchal/))
+
+
+##License:
+
+This Project is available under the MIT license.
 
 
 **Free Software, Hell Yeah!**
