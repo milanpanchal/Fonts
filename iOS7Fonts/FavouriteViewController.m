@@ -8,10 +8,9 @@
 
 #import "FavouriteViewController.h"
 #import "AppDelegate.h"
-#import "Constants.h"
 #import "FontDetailViewController.h"
 
-@interface FavouriteViewController () {
+@interface FavouriteViewController ()<UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate> {
 
     AppDelegate *appDelegate ;
     NSArray *favouriteFonts ;
@@ -49,7 +48,6 @@
     [self addnavigationBarRightButton];
 
     [self.tblView setBackgroundColor:[UIColor clearColor]];
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:IMG_BG]]];
 
 }
 

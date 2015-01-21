@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E070170E1A6FA70E002847D2 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E070170D1A6FA70E002847D2 /* BaseViewController.m */; };
 		ED08F28818963B7800389DFC /* FeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED08F28618963B7800389DFC /* FeatureViewController.m */; };
 		ED08F28918963B7800389DFC /* FeatureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED08F28718963B7800389DFC /* FeatureViewController.xib */; };
 		ED08F28C1896426100389DFC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED08F28B1896426100389DFC /* AVFoundation.framework */; };
@@ -96,6 +97,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E070170C1A6FA70E002847D2 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		E070170D1A6FA70E002847D2 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		ED08F28518963B7800389DFC /* FeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeatureViewController.h; sourceTree = "<group>"; };
 		ED08F28618963B7800389DFC /* FeatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeatureViewController.m; sourceTree = "<group>"; };
 		ED08F28718963B7800389DFC /* FeatureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeatureViewController.xib; sourceTree = "<group>"; };
@@ -353,6 +356,8 @@
 				EDA8261C188EAF6E00A2455E /* Constants.m */,
 				ED701B361885231C005D7F6B /* AppDelegate.h */,
 				ED701B371885231C005D7F6B /* AppDelegate.m */,
+				E070170C1A6FA70E002847D2 /* BaseViewController.h */,
+				E070170D1A6FA70E002847D2 /* BaseViewController.m */,
 				EDD0E4BF1889357700C2CD20 /* All Fonts */,
 				EDD0E4C01889358300C2CD20 /* Favourite */,
 				EDA82610188E71DD00A2455E /* Unicodes */,
@@ -631,6 +636,7 @@
 				ED08F2901896428200389DFC /* BarcodeViewController.m in Sources */,
 				ED701B6218853D3F005D7F6B /* FontDetailViewController.m in Sources */,
 				EDBFFB2318A0F0620042E205 /* FilterViewController.m in Sources */,
+				E070170E1A6FA70E002847D2 /* BaseViewController.m in Sources */,
 				ED701B341885231C005D7F6B /* main.m in Sources */,
 				ED11814D18969A0F00FA39DF /* Barcode.m in Sources */,
 				ED61D90718939C6500D9FB7C /* Person.m in Sources */,

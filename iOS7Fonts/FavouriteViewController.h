@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Pantech. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface FavouriteViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate>
+@interface FavouriteViewController : BaseViewController
 @property (strong, nonatomic) IBOutlet UITableView *tblView;
 
 @end

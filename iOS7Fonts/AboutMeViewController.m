@@ -9,7 +9,6 @@
 #import "AboutMeViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import <AddressBook/AddressBook.h>
-#import "Constants.h"
 #import "Person.h"
 
 @interface AboutMeViewController () {
@@ -45,7 +44,6 @@
     [super viewDidLoad];
     [_profilePic.layer setCornerRadius:CGRectGetWidth(_profilePic.frame)/2];
     [_profilePic setClipsToBounds:YES];
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:IMG_BG]]];
 
     
     [self addNavigationBarRightButton];

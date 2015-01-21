@@ -84,8 +84,13 @@
 #pragma mark - UIActionSheetDelegate
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    GPUImageFilter *selectedFilter;
     
+    if (buttonIndex == actionSheet.cancelButtonIndex) {
+        return;
+    }
+
+    GPUImageFilter *selectedFilter;
+
     switch (buttonIndex) {
         case 0:
             selectedFilter = [[GPUImageGrayscaleFilter alloc] init];

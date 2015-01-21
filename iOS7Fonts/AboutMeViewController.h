@@ -6,9 +6,10 @@
 //  Copyright (c) 2014 Pantech. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface AboutMeViewController : UIViewController
+@interface AboutMeViewController : BaseViewController
+
 @property (strong, nonatomic) IBOutlet UIImageView *profilePic;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 

@@ -76,8 +76,6 @@
     
     [self addnavigationBarRightButton];
     
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:IMG_BG]]];
-
 }
 
 -(void)viewWillAppear:(BOOL)animated {

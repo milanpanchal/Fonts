@@ -6,10 +6,11 @@
 //  Copyright (c) 2014 Pantech. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface ViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate>
+@interface ViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate>
 
-@property (strong, nonatomic) IBOutlet UITableView *tblView;
+@property (weak, nonatomic) IBOutlet UITableView *tblView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintBottomScrollView;
 
 @end

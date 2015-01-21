@@ -9,7 +9,8 @@
 #import "ViewController.h"
 #import "FontDetailViewController.h"
 #import "AppDelegate.h"
-#import "Constants.h"
+
+#define IMAGEVIEW_TAG 12321
 
 @interface ViewController () {
     AppDelegate *appDelegate;
@@ -90,7 +91,6 @@
     [self addNavigationBarRightButton];
     
     [self.tblView setBackgroundColor:[UIColor clearColor]];
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:IMG_BG]]];
     
 
     
@@ -144,26 +144,6 @@
     
 }
 
-#pragma mark - Table Footer Setup
-
-//- (void)setupFooter {
-//    
-//    CGRect footerRect = CGRectMake(0, 0, 320, 50);
-//    UIView *wrapperView = [[UIView alloc] initWithFrame:footerRect];
-//    
-//    UILabel *tableFooter = [[UILabel alloc] initWithFrame:footerRect];
-//    tableFooter.textColor = [UIColor darkGrayColor];
-//    tableFooter.numberOfLines = 0;
-//    tableFooter.textAlignment = NSTextAlignmentCenter;
-//    tableFooter.backgroundColor = [self.tblView backgroundColor];
-//    tableFooter.opaque = YES;
-//    tableFooter.font = [UIFont boldSystemFontOfSize:12];
-//    tableFooter.text = [NSString stringWithFormat:@"\n\nTotal Fonts = %d", ([fontSearchBar isFirstResponder] ? totalFilteredFonts : totalFonts)];
-//    [wrapperView addSubview:tableFooter];
-//    
-//    self.tblView.tableFooterView = wrapperView;
-//
-//}
 
 #pragma mark - UITableView DataSource/Delegate
 
@@ -265,43 +245,6 @@
     
 }
 
-- (void)scrollViewWillBeginDragging:(UIScrollView *)activeScrollView {
-    //logic here
-    if ([fontSearchBar isFirstResponder]) {
-        [fontSearchBar resignFirstResponder];
-    }
-}
-
-
-//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-//    
-//    //1. Setup the CATransform3D structure
-//    CATransform3D rotation;
-//    rotation = CATransform3DMakeRotation( (90.0*M_PI)/180, 0.0, 0.7, 0.4);
-//    rotation.m34 = 1.0/ -600;
-//    
-//    
-//    //2. Define the initial state (Before the animation)
-//    cell.layer.shadowColor = [[UIColor blackColor]CGColor];
-//    cell.layer.shadowOffset = CGSizeMake(10, 10);
-//    cell.alpha = 0;
-//    
-//    cell.layer.transform = rotation;
-//    cell.layer.anchorPoint = CGPointMake(0, 0.5);
-//    
-//    
-//    //3. Define the final state (After the animation) and commit the animation
-//    [UIView beginAnimations:@"rotation" context:NULL];
-//    [UIView setAnimationDuration:0.8];
-//    cell.layer.transform = CATransform3DIdentity;
-//    cell.alpha = 1;
-//    cell.layer.shadowOffset = CGSizeMake(0, 0);
-//    [UIView commitAnimations];
-//    
-//}
-
-
-
 #pragma mark - GestureRecognizer
 
 -(void)tapOnFavouriteImage:(UITapGestureRecognizer *) gesture {
@@ -311,24 +254,28 @@
         UIImageView *imageView = (UIImageView*)gesture.view;
        
         // Get ImageView Text
+        UITableViewCell *cell;
         if ([imageView.superview.superview.superview isKindOfClass:[UITableViewCell class]]) {
-            UITableViewCell *cell = (UITableViewCell*)[[[imageView superview]superview]superview];
-            
-            if (imageView.tag) {
-                imageView.image = [UIImage imageNamed:@"favorite_star_30"];
-                imageView.tag = 0;
-                [appDelegate removeFontFromFavourite:cell.textLabel.text];
-            }else{
-                imageView.image = [UIImage imageNamed:@"favorite_star_filled_30"];
-                imageView.tag = 1;
-                [appDelegate addFontToFavourite:cell.textLabel.text];
-                
-            }
-            
-
+            cell = (UITableViewCell*)[[[imageView superview]superview] superview];
+      
+        }else if ([imageView.superview.superview isKindOfClass:[UITableViewCell class]]) {
+            cell = (UITableViewCell*)[[imageView superview]superview];
+       
+        }else {
+            return;
         }
-        
-        
+
+        if (imageView.tag) {
+            imageView.image = [UIImage imageNamed:@"favorite_star_30"];
+            imageView.tag = 0;
+            [appDelegate removeFontFromFavourite:cell.textLabel.text];
+        }else{
+            imageView.image = [UIImage imageNamed:@"favorite_star_filled_30"];
+            imageView.tag = 1;
+            [appDelegate addFontToFavourite:cell.textLabel.text];
+            
+        }
+
     }
 
 }
@@ -394,8 +341,6 @@
     
     }
     
-    
-    
     [_tblView reloadData];
 }
 
@@ -410,15 +355,19 @@
 		return;
 	}
 	
+    
     // Get the size of the keyboard from the userInfo dictionary.
     NSDictionary *keyboardInfo = [notification userInfo];
     CGSize keyboardSize = [[keyboardInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     
-    float keyboardHeight = keyboardSize.height;
+    
+    self.constraintBottomScrollView.constant = keyboardSize.height - appDelegate.tabBarController.tabBar.frame.size.height;
 
-    CGRect rect = _tblView.frame ;
-    rect.size.height -= (keyboardHeight - self.tabBarController.tabBar.frame.size.height);
- 	_tblView.frame = rect;
+    [self.view setNeedsUpdateConstraints];
+    [UIView animateWithDuration:0.25f animations:^{
+        [self.view layoutIfNeeded];
+    }];
+
     
     keyboardVisible = YES;
     
@@ -430,19 +379,11 @@
 		return;
 	}
     
-    // Get the size of the keyboard from the userInfo dictionary.
-    NSDictionary *keyboardInfo = [notification userInfo];
-    CGSize keyboardSize = [[keyboardInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-    
-    float keyboardHeight = keyboardSize.height;
+    self.constraintBottomScrollView.constant = 0;
 
-    
-    [UIView animateWithDuration:.25 animations:^{
-        
-        CGRect rect = _tblView.frame ;
-        rect.size.height += (keyboardHeight - self.tabBarController.tabBar.frame.size.height);
-        _tblView.frame = rect;
-        
+    [self.view setNeedsUpdateConstraints];
+    [UIView animateWithDuration:0.25f animations:^{
+        [self.view layoutIfNeeded];
     }];
     
 	keyboardVisible = NO;

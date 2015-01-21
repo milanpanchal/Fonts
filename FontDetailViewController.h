@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Pantech. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface FontDetailViewController : UIViewController {
+@interface FontDetailViewController : BaseViewController {
 
     IBOutlet UILabel *fontNameLabel;
     IBOutlet UILabel *fontFamilyNameLabel;
